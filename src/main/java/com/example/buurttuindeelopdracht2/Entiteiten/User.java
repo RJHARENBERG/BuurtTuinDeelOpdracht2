@@ -1,13 +1,11 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "Buuren")
 public class User {
 
     @Id
@@ -18,6 +16,7 @@ public class User {
     private String password;
 //    private IMG
     private String firstName;
+    private String lastName;
     private String zipcode;
     private String streetName;
     private Long houseNumber;
@@ -25,6 +24,14 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Set<Tool> tools = new HashSet<>();
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public Long getId() {
         return id;

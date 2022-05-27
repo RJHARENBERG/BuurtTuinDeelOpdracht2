@@ -8,6 +8,7 @@ public class UserInputDto {
     private String password;
     //    private IMG
     private String firstName;
+    private String lastName;
     private String zipcode;
     private String streetName;
     private Long houseNumber;
@@ -19,6 +20,14 @@ public class UserInputDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUserName() {
