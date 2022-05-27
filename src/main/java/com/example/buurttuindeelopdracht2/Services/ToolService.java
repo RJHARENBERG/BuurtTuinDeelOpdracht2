@@ -4,6 +4,7 @@ import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
 import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.ReservationRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
@@ -57,6 +58,11 @@ public class ToolService {
             toolRepository.save(tool);
         }
         return fromTool(tool);
+    }
+
+    public String deleteTool(Tool id) {
+        toolRepository.deleteById(id.getId());
+        return "Tool removed !!" + id;
     }
 
     public static ToolDto fromTool(Tool tool) {

@@ -38,6 +38,11 @@ public class ReservationService {
         return reservationDtos;
     }
 
+    public String deleteReservation(Reservation id) {
+        reservationRepository.deleteById(id.getId());
+        return "User removed !!" + id;
+    }
+
     public static ReservationDto fromReservation(Reservation reservation) {
         var dto = new ReservationDto();
 

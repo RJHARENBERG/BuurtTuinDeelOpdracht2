@@ -3,6 +3,8 @@ package com.example.buurttuindeelopdracht2.Controllers;
 import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
 import com.example.buurttuindeelopdracht2.Dtos.UserDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +37,11 @@ public class ToolController {
                                     @PathVariable Long tool_id) throws RecordNotFoundException {
         return toolService.addNewReservationToTool(reservation_id, tool_id);
     }
+
+    @DeleteMapping("/deleteToolById/{id}")
+    public String deleteTool(@PathVariable Tool id) {
+        return toolService.deleteTool(id);
+    }
+
+
 }
