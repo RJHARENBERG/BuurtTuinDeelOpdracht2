@@ -2,9 +2,7 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.ReservationDto;
 import com.example.buurttuindeelopdracht2.Dtos.ReservationInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
-import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

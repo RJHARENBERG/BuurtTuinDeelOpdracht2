@@ -4,8 +4,8 @@ public class ResponseDto {
 
     private Long id;
 
-    private String Message;
-    private Long MessengerId;
+    private String message;
+    private Long messengerId;
 
     public Long getId() {
         return id;
@@ -16,18 +16,18 @@ public class ResponseDto {
     }
 
     public String getMessage() {
-        return Message;
+        return message;
     }
 
     public void setMessage(String message) {
-        Message = message;
+        message = message;
     }
 
     public Long getMessengerId() {
-        return MessengerId;
+        return messengerId;
     }
 
     public void setMessengerId(Long messengerId) {
-        MessengerId = messengerId;
+        messengerId = messengerId;
     }
 }
