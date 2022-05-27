@@ -1,5 +1,10 @@
 package com.example.buurttuindeelopdracht2.Dtos;
 
+import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class ToolInputDto {
 
     private Long id;
@@ -8,6 +13,16 @@ public class ToolInputDto {
     private String type;
     //    private IMG
     private String description;
+
+    private Set<Reservation> reservations = new HashSet<>();
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public Long getId() {
         return id;

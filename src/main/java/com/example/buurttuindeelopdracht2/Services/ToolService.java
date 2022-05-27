@@ -2,22 +2,28 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
 import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
+import com.example.buurttuindeelopdracht2.Repositorys.ReservationRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ToolService {
 
     private final ToolRepository toolRepository;
+    private final ReservationRepository reservationRepository;
 
     @Autowired
-    public ToolService(ToolRepository toolRepository) {
+    public ToolService(ToolRepository toolRepository, ReservationRepository reservationRepository) {
         this.toolRepository = toolRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     public ToolDto addTool(ToolInputDto toolInputDto) {
@@ -35,6 +41,23 @@ public class ToolService {
         return toolDtos;
     }
 
+    public ToolDto addNewReservationToTool(Long reservationId, Long toolId) throws RecordNotFoundException {
+        Optional<Reservation> optionalReservation = reservationRepository.findById(reservationId);
+        Optional<Tool> optionalTool = toolRepository.findById(toolId);
+
+        Tool tool;
+        Reservation reservation;
+        if (optionalTool.isEmpty() || optionalReservation.isEmpty()) {
+            throw new RecordNotFoundException();
+        } else {
+            reservation = optionalReservation.get();
+            tool = optionalTool.get();
+
+            reservation.assignTool(tool);
+            toolRepository.save(tool);
+        }
+        return fromTool(tool);
+    }
 
     public static ToolDto fromTool(Tool tool) {
         var dto = new ToolDto();
@@ -43,6 +66,8 @@ public class ToolService {
         dto.setToolName(tool.getToolName());
         dto.setType(tool.getType());
         dto.setDescription(tool.getDescription());
+
+        dto.setReservations(tool.getReservations());
 
         return dto;
     }
@@ -54,6 +79,8 @@ public class ToolService {
         tool.setToolName(toolInputDto.getToolName());
         tool.setType(toolInputDto.getType());
         tool.setToolName(toolInputDto.getToolName());
+
+        tool.setReservations(toolInputDto.getReservations());
 
         return tool;
     }

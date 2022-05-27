@@ -1,5 +1,7 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Reservation {
 
     private Long borrowerId;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "tool_id")
     private Tool tool;
@@ -38,5 +41,9 @@ public class Reservation {
 
     public void setBorrowerId(Long borrowerId) {
         this.borrowerId = borrowerId;
+    }
+
+    public void assignTool(Tool tool) {
+        this.tool = tool;
     }
 }
