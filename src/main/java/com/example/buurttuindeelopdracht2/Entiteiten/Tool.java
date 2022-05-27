@@ -3,6 +3,8 @@ package com.example.buurttuindeelopdracht2.Entiteiten;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Tool {
@@ -21,12 +23,23 @@ public class Tool {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToMany(mappedBy = "tool")
+    private Set<Reservation> reservations = new HashSet<>();
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
     public Long getId() {
