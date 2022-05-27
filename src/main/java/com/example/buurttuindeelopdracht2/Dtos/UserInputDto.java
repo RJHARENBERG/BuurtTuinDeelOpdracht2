@@ -1,5 +1,10 @@
 package com.example.buurttuindeelopdracht2.Dtos;
 
+import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class UserInputDto {
 
     private Long id;
@@ -13,6 +18,16 @@ public class UserInputDto {
     private String streetName;
     private Long houseNumber;
     private String email;
+
+    private Set<Tool> tools = new HashSet<>();
+
+    public Set<Tool> getTools() {
+        return tools;
+    }
+
+    public void setTools(Set<Tool> tools) {
+        this.tools = tools;
+    }
 
     public Long getId() {
         return id;

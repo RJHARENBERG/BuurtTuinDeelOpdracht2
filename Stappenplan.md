@@ -1,23 +1,23 @@
 
 Stappen plan:
 mappen:
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Controllers;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Exceptions;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Models;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Repositorys;
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Services;
-    [] Het project bevat een ExceptionController;
-    [] Het project bevat een RecordNotFoundException;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Controllers;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Exceptions;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Entiteiten;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Repositorys;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Services;
+    [v] Het project bevat een ExceptionController;
+    [v] Het project bevat een RecordNotFoundException;
     [] Het project bevat een data.sql voor de voor in gevulde data;
 
 De ExceptionController bevat:
-    [] een exceptionhandler
+    [v] een exceptionhandler
 
 De RecordNotFoundException bevat:
-    [] een default exception
-    [] een exception met message
-    [] Extent de klasse met de RunTimeException.
-    [] Vul de klasse aan aan de hand van het voorbeeld in hoofdstuk 5.11 van de cursus Spring Boot.
+    [v] een default exception
+    [v] een exception met message
+    [v] Extent de klasse met de RunTimeException.
+    [v] Vul de klasse aan aan de hand van het voorbeeld in hoofdstuk 5.11 van de cursus Spring Boot.
 
 Controler:
     [] een GET-request

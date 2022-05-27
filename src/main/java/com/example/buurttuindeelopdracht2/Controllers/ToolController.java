@@ -2,7 +2,6 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Services.ToolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

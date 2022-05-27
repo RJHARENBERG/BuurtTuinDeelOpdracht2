@@ -1,5 +1,7 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class Tool {
 //    private IMG
     private String description;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -56,5 +59,9 @@ public class Tool {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void assignUser(User user) {
+        this.user = user;
     }
 }

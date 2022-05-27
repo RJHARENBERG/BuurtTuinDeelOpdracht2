@@ -2,22 +2,28 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Dtos.UserInputDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
 import com.example.buurttuindeelopdracht2.Entiteiten.User;
+import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
+import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
+    private final ToolRepository toolRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, ToolRepository toolRepository) {
         this.userRepository = userRepository;
+        this.toolRepository = toolRepository;
     }
 
     public UserDto addUser(UserInputDto userInputDto) {
@@ -35,6 +41,28 @@ public class UserService {
         return userDtos;
     }
 
+
+    public UserDto addNewToolToUser(Long toolId, Long userId) throws RecordNotFoundException {
+        Optional<Tool> optionalTool = toolRepository.findById(toolId);
+        Optional<User> optionalUser = userRepository.findById(userId);
+
+        User user;
+        Tool tool;
+        if (optionalUser.isEmpty() || optionalTool.isEmpty()) {
+            throw new RecordNotFoundException();
+        } else {
+            tool = optionalTool.get();
+            user = optionalUser.get();
+
+            tool.assignUser(user);
+            userRepository.save(user);
+        }
+        return fromUser(user);
+    }
+
+
+
+
     public static UserDto fromUser(User user) {
         var dto = new UserDto();
 
@@ -47,6 +75,8 @@ public class UserService {
         dto.setStreetName(user.getStreetName());
         dto.setHouseNumber(user.getHouseNumber());
         dto.setEmail(user.getEmail());
+
+        dto.setTools(user.getTools());
         return dto;
     }
 
@@ -62,6 +92,8 @@ public class UserService {
         user.setStreetName(userInputDto.getStreetName());
         user.setHouseNumber(userInputDto.getHouseNumber());
         user.setEmail(userInputDto.getEmail());
+
+        user.setTools(userInputDto.getTools());
         return user;
     }
 
