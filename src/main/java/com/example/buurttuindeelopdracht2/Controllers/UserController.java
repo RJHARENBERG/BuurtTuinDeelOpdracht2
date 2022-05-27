@@ -2,6 +2,7 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Dtos.UserInputDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,13 @@ public class UserController {
                                     @PathVariable Long user_id) throws RecordNotFoundException {
         return userService.addNewToolToUser(tool_id, user_id);
     }
+
+    @GetMapping("/findUserById/{id}")
+    public UserDto findUserById(@PathVariable User id) throws RecordNotFoundException {
+        return userService.getUserById(id);
+    }
+
+
 
 
 }

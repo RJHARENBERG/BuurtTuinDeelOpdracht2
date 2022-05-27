@@ -41,6 +41,14 @@ public class UserService {
         return userDtos;
     }
 
+    public UserDto getUserById(User id) throws RecordNotFoundException {
+        User userFound = userRepository.getById(id.getId());
+        if (userFound == null) {
+            throw new RecordNotFoundException("cannot find user" + id);
+        }
+        return fromUser(userFound);
+    }
+
     public UserDto addNewToolToUser(Long toolId, Long userId) throws RecordNotFoundException {
         Optional<Tool> optionalTool = toolRepository.findById(toolId);
         Optional<User> optionalUser = userRepository.findById(userId);

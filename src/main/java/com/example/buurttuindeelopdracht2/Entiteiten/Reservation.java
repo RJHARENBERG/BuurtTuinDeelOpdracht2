@@ -26,7 +26,6 @@ public class Reservation {
         this.tool = tool;
     }
 
-
     public Long getId() {
         return id;
     }
