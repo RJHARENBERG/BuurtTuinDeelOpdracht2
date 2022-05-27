@@ -67,7 +67,10 @@ public class UserService {
         return fromUser(user);
     }
 
-
+    public String deleteUser(User id) {
+        userRepository.deleteById(id.getId());
+        return "User removed !!" + id;
+    }
 
 
     public static UserDto fromUser(User user) {
