@@ -7,6 +7,9 @@ import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ToolService {
 
@@ -22,6 +25,16 @@ public class ToolService {
         toolRepository.save(tool);
         return fromTool(tool);
     }
+
+    public List<ToolDto> getAllTools() {
+        List<ToolDto> toolDtos = new ArrayList<>();
+        List<Tool> tools = toolRepository.findAll();
+        for (Tool tool : tools) {
+            toolDtos.add(fromTool(tool));
+        }
+        return toolDtos;
+    }
+
 
     public static ToolDto fromTool(Tool tool) {
         var dto = new ToolDto();

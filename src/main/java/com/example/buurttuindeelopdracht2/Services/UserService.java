@@ -7,6 +7,9 @@ import com.example.buurttuindeelopdracht2.Repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -23,6 +26,14 @@ public class UserService {
         return fromUser(user);
     }
 
+    public List<UserDto> getAllUsers() {
+        List<UserDto> userDtos = new ArrayList<>();
+        List<User> users = userRepository.findAll();
+        for (User user : users) {
+            userDtos.add(fromUser(user));
+        }
+        return userDtos;
+    }
 
     public static UserDto fromUser(User user) {
         var dto = new UserDto();
