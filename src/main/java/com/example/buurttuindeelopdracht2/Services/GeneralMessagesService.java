@@ -2,7 +2,10 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesDto;
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesInputDto;
+import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
+import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
+import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
 import com.example.buurttuindeelopdracht2.Repositorys.GeneralMessagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,13 @@ public class GeneralMessagesService {
     @Autowired
     public GeneralMessagesService(GeneralMessagesRepository generalMessagesRepository) {
         this.generalMessagesRepository = generalMessagesRepository;
+    }
+
+
+    public GeneralMessagesDto addGeneralMessages(GeneralMessagesInputDto generalMessagesInputDto) {
+        GeneralMessages generalMessages = toGeneralMessages(generalMessagesInputDto);
+        generalMessagesRepository.save(generalMessages);
+        return fromGeneralMessages(generalMessages);
     }
 
 

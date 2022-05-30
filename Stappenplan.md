@@ -28,7 +28,7 @@ Controler:
 
 klasse:
     [] Voorzie de klasse van de juiste annotatie.
-    [] maak in de klasse een exceptionHandler met de juiste notatie en response entitiy.
+    [v] maak in de klasse een exceptionHandler met de juiste notatie en response entitiy.
 
 Het project bevat de volgende dependencies:
     [v] Spring Web
