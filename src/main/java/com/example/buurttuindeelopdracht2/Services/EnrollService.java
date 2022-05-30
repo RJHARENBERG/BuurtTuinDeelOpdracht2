@@ -5,6 +5,7 @@ import com.example.buurttuindeelopdracht2.Dtos.EnrollInputDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
+import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
 import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
 import com.example.buurttuindeelopdracht2.Repositorys.EnrollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class EnrollService {
         Enroll enroll = toEnroll(enrollInputDto);
         enrollRepository.save(enroll);
         return fromEnroll(enroll);
+    }
+
+    public String deleteEnroll(Enroll id) {
+        enrollRepository.deleteById(id.getId());
+        return "Enroll removed !!" + id;
     }
 
     public static EnrollDto fromEnroll(Enroll enroll) {
@@ -47,4 +53,6 @@ public class EnrollService {
 
         return enroll;
     }
+
+
 }

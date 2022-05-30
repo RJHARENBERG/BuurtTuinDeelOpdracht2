@@ -2,6 +2,8 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesDto;
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesInputDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.GeneralMessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,12 @@ public class GeneralMessagesController {
                                            @PathVariable Long generalMessages_id) throws RecordNotFoundException {
         return generalMessagesService.addNewResponseToGeneralMessages(response_id, generalMessages_id);
     }
+
+    @DeleteMapping("/deleteGeneralMessagesById/{id}")
+    public String deleteGeneralMessages(@PathVariable GeneralMessages id) {
+        return generalMessagesService.deleteGeneralMessages(id);
+    }
+
+
 }
 

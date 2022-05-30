@@ -5,6 +5,7 @@ import com.example.buurttuindeelopdracht2.Dtos.ProjectInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
 import com.example.buurttuindeelopdracht2.Entiteiten.Project;
 import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.EnrollRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ProjectRepository;
@@ -83,9 +84,10 @@ public class ProjectService {
         return fromProject(project);
     }
 
-
-
-
+    public String deleteProject(Project id) {
+        projectRepository.deleteById(id.getId());
+        return "Project removed !!" + id;
+    }
 
 
     public static ProjectDto fromProject(Project project) {

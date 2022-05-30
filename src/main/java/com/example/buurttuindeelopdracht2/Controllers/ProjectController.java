@@ -3,6 +3,8 @@ package com.example.buurttuindeelopdracht2.Controllers;
 import com.example.buurttuindeelopdracht2.Dtos.ProjectDto;
 import com.example.buurttuindeelopdracht2.Dtos.ProjectInputDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.Project;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,11 @@ public class ProjectController {
     public ProjectDto addNewEnrollToProject(@PathVariable Long enroll_id,
                                           @PathVariable Long project_id) throws RecordNotFoundException {
         return projectService.addNewEnrollToProject(enroll_id, project_id);
+    }
+
+    @DeleteMapping("/deleteProjectById/{id}")
+    public String deleteProject(@PathVariable Project id) {
+        return projectService.deleteProject(id);
     }
 }
 

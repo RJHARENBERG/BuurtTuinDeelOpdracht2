@@ -2,11 +2,11 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.EnrollDto;
 import com.example.buurttuindeelopdracht2.Dtos.EnrollInputDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Services.EnrollService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class EnrollController {
@@ -21,6 +21,11 @@ public class EnrollController {
     @PostMapping("/addEnroll")
     public EnrollDto addEnroll (@RequestBody EnrollInputDto enrollInputDto){
         return enrollService.addEnroll(enrollInputDto);
+    }
+
+    @DeleteMapping("/deleteEnrollById/{id}")
+    public String deleteEnroll(@PathVariable Enroll id) {
+        return enrollService.deleteEnroll(id);
     }
 
 }

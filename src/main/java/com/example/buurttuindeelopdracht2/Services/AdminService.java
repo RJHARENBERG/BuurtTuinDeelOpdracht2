@@ -3,6 +3,7 @@ package com.example.buurttuindeelopdracht2.Services;
 import com.example.buurttuindeelopdracht2.Dtos.AdminDto;
 import com.example.buurttuindeelopdracht2.Dtos.AdminInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Admin;
+import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
 import com.example.buurttuindeelopdracht2.Repositorys.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,10 @@ public class AdminService {
         admin.setName(adminInputDto.getName());
 
         return admin;
+    }
+
+    public String deleteAdmin(Admin id) {
+        adminRepository.deleteById(id.getId());
+        return "Admin removed !!" + id;
     }
 }

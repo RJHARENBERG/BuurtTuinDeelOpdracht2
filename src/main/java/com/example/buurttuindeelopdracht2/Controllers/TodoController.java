@@ -2,11 +2,11 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.TodoDto;
 import com.example.buurttuindeelopdracht2.Dtos.TodoInputDto;
+import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TodoController {
@@ -21,5 +21,10 @@ public class TodoController {
     @PostMapping("/addTodo")
     public TodoDto addTodo (@RequestBody TodoInputDto todoInputDto){
         return todoService.addTodo(todoInputDto);
+    }
+
+    @DeleteMapping("/deleteTodoById/{id}")
+    public String deleteTodo(@PathVariable Todo id) {
+        return todoService.deleteTodo(id);
     }
 }

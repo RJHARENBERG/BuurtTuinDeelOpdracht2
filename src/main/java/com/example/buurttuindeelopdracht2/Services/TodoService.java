@@ -3,6 +3,7 @@ package com.example.buurttuindeelopdracht2.Services;
 import com.example.buurttuindeelopdracht2.Dtos.TodoDto;
 import com.example.buurttuindeelopdracht2.Dtos.TodoInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Repositorys.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class TodoService {
         Todo todo = toTodo(todoInputDto);
         todoRepository.save(todo);
         return fromTodo(todo);
+    }
+
+    public String deleteTodo(Todo id) {
+        todoRepository.deleteById(id.getId());
+        return "Todo removed !!" + id;
     }
 
     public static TodoDto fromTodo(Todo todo) {

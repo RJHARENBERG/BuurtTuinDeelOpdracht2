@@ -3,6 +3,7 @@ package com.example.buurttuindeelopdracht2.Services;
 import com.example.buurttuindeelopdracht2.Dtos.ResponseDto;
 import com.example.buurttuindeelopdracht2.Dtos.ResponseInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Response;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Repositorys.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,10 @@ public class ResponseService {
         return fromResponse(response);
     }
 
-
+    public String deleteResponse(Response id) {
+        responseRepository.deleteById(id.getId());
+        return "Response removed !!" + id;
+    }
     public static ResponseDto fromResponse(Response response) {
         var dto = new ResponseDto();
 
