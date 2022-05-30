@@ -33,7 +33,7 @@ public class ToolController {
     }
 
     @PutMapping("/addNewReservation/{reservation_id}/ToTool/{tool_id}")
-    public ToolDto addNewReservationToUser(@PathVariable Long reservation_id,
+    public ToolDto addNewReservationToTool(@PathVariable Long reservation_id,
                                     @PathVariable Long tool_id) throws RecordNotFoundException {
         return toolService.addNewReservationToTool(reservation_id, tool_id);
     }

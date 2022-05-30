@@ -58,4 +58,8 @@ public class Todo {
     public void setDefinition(String definition) {
         this.definition = definition;
     }
+
+    public void assignProject(Project project) {
+        this.project = project;
+    }
 }

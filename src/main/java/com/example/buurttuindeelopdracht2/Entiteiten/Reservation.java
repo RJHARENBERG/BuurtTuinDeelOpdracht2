@@ -45,4 +45,5 @@ public class Reservation {
     public void assignTool(Tool tool) {
         this.tool = tool;
     }
+
 }

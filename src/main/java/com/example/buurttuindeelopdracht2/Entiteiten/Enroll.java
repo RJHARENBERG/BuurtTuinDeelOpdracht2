@@ -40,4 +40,8 @@ public class Enroll {
     public void setTenderId(Long tenderId) {
         this.tenderId = tenderId;
     }
+
+    public void assignProject(Project project) {
+        this.project = project;
+    }
 }

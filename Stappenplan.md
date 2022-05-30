@@ -35,57 +35,57 @@ Het project bevat de volgende dependencies:
     [v] Spring Data Jpa
     [v] PostgreSQL Driver
     [nvt] De Application.properties bevat de properties uit hoofdstuk 9.2 van de cursus Spring Boot(met aangepaste namen)
-    [] De "Naam van de klasse"+Repository extends JpaRepository met de juiste parameters
+    [v] De "Naam van de klasse"+Repository extends JpaRepository met de juiste parameters
     [] Voeg de benodigde dependencies toe aan je POM.xml en laat Maven deze instaleren
-    [] Voeg aan de application.properties de benodigde properties toe
-    [] Maak een nieuwe database aan in PgAdmin (zorg dat de naam overeenkomt met de properties in je_application.properties)
+    [v] Voeg aan de application.properties de benodigde properties toe
+    [v] Maak een nieuwe database aan in PgAdmin (zorg dat de naam overeenkomt met de properties in je_application.properties)
 
 Atributten in Models:
-    [] velden aan maken
-    [] getters em setters als velden privet zijn
+    [v] velden aan maken
+    [v] getters em setters als velden privet zijn
     [] verantwoorden in documentatie waar om wel of geen constructor te gebruiken
-    [] @Entity aanmaken
-    [] @Id aanmaken
-    [] @GeneratedValue aanmaken
+    [v] @Entity aanmaken
+    [v] @Id aanmaken
+    [v] @GeneratedValue aanmaken
 
 Service:
-    [] De map Services bevat een klasse genaamd "KlasseNaam"+Service;
-    [] de juiste annotatie
-    [] een private variabele "KlasseNaam"+Repository
-    [] de connectie van de Service en de Repository door middel van een autowired
-    [] een metoden maken voor de toDto om de data om te schrijven
-    [] een metode maken voor de fromDto om de data om te schrijven
-    [] een functie voor het ophalen van data
-    [] een functie voor het ophalen van 1 data set
-    [] een functie voor het verwijderen van 1 data set
-    [] een functie voor het updaten van 1 data set
-    [] De Controller is door middel van een autowired gelinkt aan de Service;
+    [v] De map Services bevat een klasse genaamd "KlasseNaam"+Service;
+    [v] de juiste annotatie
+    [v] een private variabele "KlasseNaam"+Repository
+    [v] de connectie van de Service en de Repository door middel van een autowired
+    [v] een metoden maken voor de toDto om de data om te schrijven
+    [v] een metode maken voor de fromDto om de data om te schrijven
+    [v] een functie voor het ophalen van data
+    [v] een functie voor het ophalen van 1 data set
+    [v] een functie voor het verwijderen van 1 data set
+    [v] een functie voor het updaten van 1 data set
+    [v] De Controller is door middel van een autowired gelinkt aan de Service;
 
 Dto
-    [] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Dtos;
+    [v] Het project bevat, op de juiste plaats in de map-structuur, een map genaamd Dtos;
     [] techniese keuzen verantwoorden in documentatie waarom veld privet met geters en seters of de dto public maken?
-    [] Dto maken
-    [] inputDto maken
-    [] De requestMappings in de Controller worden aangepast zodat deze de juiste response doorgeven via de Service;
-    [] De Service maakt gebruik van de gegevens die we via de Controller doorkrijgen van de Dtos;
+    [v] Dto maken
+    [v] inputDto maken
+    [v] De requestMappings in de Controller worden aangepast zodat deze de juiste response doorgeven via de Service;
+    [v] De Service maakt gebruik van de gegevens die we via de Controller doorkrijgen van de Dtos;
     [] Het project bevat de validator dependency uit paragraaf 8.1 van de cursus Spring Boot in Edhub.
 
 Data flow door de lagen geen:
 Het is belangrijk om goed te begrijpen hoe de lagen in onze multi-tier application samenwerken:
-    [] De Controller ontvangt een verzoek op een endpoint, als er variable worden meegeven aan dit verzoek komen die
+    [v] De Controller ontvangt een verzoek op een endpoint, als er variable worden meegeven aan dit verzoek komen die
         binnen via de "KlasseNaam"+InputDto ->
-    [] De Controller geeft aan de hand van het verzoek en eventuele meegekregen variable dit door aan de Service ->
-    [] De Service spreekt aan de hand van de geschreven functie de Repository aan met de juiste find functie/query ->
-    [] De Repository gaat aan de hand van het bijbehorende Model zoeken naar de juiste gegevens en stuurt deze terug naar
+    [v] De Controller geeft aan de hand van het verzoek en eventuele meegekregen variable dit door aan de Service ->
+    [v] De Service spreekt aan de hand van de geschreven functie de Repository aan met de juiste find functie/query ->
+    [v] De Repository gaat aan de hand van het bijbehorende Model zoeken naar de juiste gegevens en stuurt deze terug naar
         de Service ->
-    [] De Service past de logica toe uit de functie en geeft de response aan de hand van de "KlasseNaam"+Dto terug aan de
+    [v] De Service past de logica toe uit de functie en geeft de response aan de hand van de "KlasseNaam"+Dto terug aan de
         Controller (De controller wordt vanuit de front-end of vanuit Postman aangesproken, en geeft ook het antwoord weer
         terug.)
 
 Relaties:
-    [] one to one
-    [] one to many
-    [] many to one
+    [v] one to one
+    [v] one to many
+    [v] many to one
     [] voor een many to many moet je twee one to many's gebruiken met een tussen klassen
     [] zie klassen dieagram voor relaties LET OP de Code en de klasse dieagram moeten met el kaar over een komen!!!
 
@@ -104,6 +104,7 @@ dubbel/vervuiling van data:
 
 data.sql:
     [] maak een bestand in de map resources met de naam data.sql
+        [] resourses -> maakt nieuw fill -> namme data.sql
     [] voeg in deze map start data om de aplicatie te kunnen starten
 
 Securetie:
