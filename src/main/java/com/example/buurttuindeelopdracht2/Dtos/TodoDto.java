@@ -1,39 +1,16 @@
-package com.example.buurttuindeelopdracht2.Entiteiten;
+package com.example.buurttuindeelopdracht2.Dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.buurttuindeelopdracht2.Entiteiten.Project;
 
-import javax.persistence.*;
+public class TodoDto {
 
-@Entity
-public class Todo {
-    @Id
-    @GeneratedValue
     private Long id;
 
     private String nameTodo;
     private String definition;
     private Boolean isDone;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "project_id")
     private Project project;
-
-    public Boolean getDone() {
-        return isDone;
-    }
-
-    public void setDone(Boolean done) {
-        isDone = done;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
 
     public Long getId() {
         return id;
@@ -57,5 +34,21 @@ public class Todo {
 
     public void setDefinition(String definition) {
         this.definition = definition;
+    }
+
+    public Boolean getDone() {
+        return isDone;
+    }
+
+    public void setDone(Boolean done) {
+        isDone = done;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
