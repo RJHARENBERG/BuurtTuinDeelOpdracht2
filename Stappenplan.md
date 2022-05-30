@@ -20,11 +20,11 @@ De RecordNotFoundException bevat:
     [v] Vul de klasse aan aan de hand van het voorbeeld in hoofdstuk 5.11 van de cursus Spring Boot.
 
 Controler:
-    [] een GET-request
-    [] een GET-request
-    [] een POST-request
-    [] een PUT-request
-    [] een DELETE-request
+    [v] een GET-request
+    [v] een GET-request
+    [v] een POST-request
+    [v] een PUT-request
+    [v] een DELETE-request
 
 klasse:
     [] Voorzie de klasse van de juiste annotatie.
@@ -83,15 +83,15 @@ Het is belangrijk om goed te begrijpen hoe de lagen in onze multi-tier applicati
         terug.)
 
 Relaties:
-    [v] one to one
+    [nvt] one to one
     [v] one to many
     [v] many to one
-    [] voor een many to many moet je twee one to many's gebruiken met een tussen klassen
+    [nvt] voor een many to many moet je twee one to many's gebruiken met een tussen klassen
     [] zie klassen dieagram voor relaties LET OP de Code en de klasse dieagram moeten met el kaar over een komen!!!
 
 post man:
-    [] maak in poost man een map ge naamt TestEindpointsBuurtTuin
-    [] maak hier in voor alle entpoints een test reqwest
+    [v] maak in poost man een map ge naamt TestEindpointsBuurtTuin
+    [v] maak hier in voor alle entpoints een test reqwest
     [] maak een export aan om deze data toe te voegen aan de zip met documentatie
     [] TestEindpointsBuurtTuin -> ... -> export
 

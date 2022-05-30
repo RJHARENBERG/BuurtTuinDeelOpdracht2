@@ -2,10 +2,7 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.AdminDto;
 import com.example.buurttuindeelopdracht2.Dtos.AdminInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.EnrollDto;
-import com.example.buurttuindeelopdracht2.Dtos.EnrollInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Admin;
-import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
 import com.example.buurttuindeelopdracht2.Services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +18,7 @@ public class AdminController {
     }
 
     @PostMapping("/addAdmin")
-    public AdminDto addAdmin (@RequestBody AdminInputDto adminInputDto){
+    public AdminDto addAdmin(@RequestBody AdminInputDto adminInputDto) {
         return adminService.addAdmin(adminInputDto);
     }
 
