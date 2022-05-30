@@ -52,7 +52,6 @@ public class Response {
         this.messengerId = messengerId;
     }
 
-
     public void assignGeneralMessages(GeneralMessages generalMessages) {
         this.generalMessages = generalMessages;
     }

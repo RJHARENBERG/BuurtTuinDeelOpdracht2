@@ -8,16 +8,6 @@ public class ReservationDto {
 
     private Long borrowerId;
 
-    private GeneralMessages generalMessages;
-
-    public GeneralMessages getGeneralMessages() {
-        return generalMessages;
-    }
-
-    public void setGeneralMessages(GeneralMessages generalMessages) {
-        this.generalMessages = generalMessages;
-    }
-
     public Long getId() {
         return id;
     }

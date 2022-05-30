@@ -36,12 +36,12 @@ public class TodoDto {
         this.definition = definition;
     }
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
-        isDone = done;
+    public void setIsDone(Boolean isdone) {
+        isDone = isdone;
     }
 
     public Project getProject() {

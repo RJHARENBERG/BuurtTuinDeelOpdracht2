@@ -12,19 +12,19 @@ public class Todo {
 
     private String nameTodo;
     private String definition;
-    private Boolean isDone;
+    private Boolean isDone = false;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
-        isDone = done;
+    public void setIsDone(Boolean isDone) {
+        isDone = isDone;
     }
 
     public Project getProject() {

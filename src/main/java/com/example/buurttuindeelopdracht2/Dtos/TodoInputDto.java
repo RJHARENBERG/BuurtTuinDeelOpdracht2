@@ -40,8 +40,8 @@ public class TodoInputDto {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
-        isDone = done;
+    public void setIsDone(Boolean isDone) {
+        isDone = isDone;
     }
 
     public Project getProject() {

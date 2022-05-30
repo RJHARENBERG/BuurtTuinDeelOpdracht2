@@ -70,7 +70,7 @@ public class GeneralMessagesService {
 
         generalMessages.setId(generalMessagesInputDto.getId());
         generalMessages.setTitle(generalMessagesInputDto.getTitle());
-        generalMessages.setMessage(generalMessages.getMessage());
+        generalMessages.setMessage(generalMessagesInputDto.getMessage());
 
         generalMessages.setResponses(generalMessagesInputDto.getResponses());
 

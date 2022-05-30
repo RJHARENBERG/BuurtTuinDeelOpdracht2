@@ -20,7 +20,7 @@ public class ResponseInputDto {
     }
 
     public void setMessage(String message) {
-        message = message;
+        this.message = message;
     }
 
     public Long getMessengerId() {
@@ -28,6 +28,6 @@ public class ResponseInputDto {
     }
 
     public void setMessengerId(Long messengerId) {
-        messengerId = messengerId;
+        this.messengerId = messengerId;
     }
 }

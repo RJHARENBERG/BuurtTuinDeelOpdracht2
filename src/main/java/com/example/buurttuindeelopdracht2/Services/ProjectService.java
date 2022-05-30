@@ -40,7 +40,7 @@ public class ProjectService {
         project.setId(projectInputDto.getId());
         project.setName(projectInputDto.getName());
         project.setDate(projectInputDto.getDate());
-        project.setLocation(project.getLocation());
+        project.setLocation(projectInputDto.getLocation());
 
         return project;
     }

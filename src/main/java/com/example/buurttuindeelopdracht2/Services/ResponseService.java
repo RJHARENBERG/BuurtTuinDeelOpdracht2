@@ -29,7 +29,6 @@ public class ResponseService {
         var dto = new ResponseDto();
 
         dto.setId(response.getId());
-        dto.setMessage(response.getMessage());
         dto.setMessengerId(response.getMessengerId());
 
         return dto;
@@ -39,7 +38,6 @@ public class ResponseService {
         var response = new Response();
 
         response.setId(responseInputDto.getId());
-        response.setMessage(response.getMessage());
         response.setMessengerId(responseInputDto.getMessengerId());
 
         return response;

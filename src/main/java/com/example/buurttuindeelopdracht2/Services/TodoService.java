@@ -2,10 +2,7 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.TodoDto;
 import com.example.buurttuindeelopdracht2.Dtos.TodoInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
-import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
 import com.example.buurttuindeelopdracht2.Repositorys.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +29,7 @@ public class TodoService {
         dto.setId(todo.getId());
         dto.setNameTodo(todo.getNameTodo());
         dto.setDefinition(todo.getDefinition());
-        dto.setDone(todo.getDone());
+        dto.setIsDone(todo.getIsDone());
 
         dto.setProject(todo.getProject());
 
@@ -45,7 +42,7 @@ public class TodoService {
         todo.setId(todoInputDto.getId());
         todo.setNameTodo(todoInputDto.getNameTodo());
         todo.setDefinition(todoInputDto.getDefinition());
-        todo.setDone(todoInputDto.getDone());
+        todo.setIsDone(todoInputDto.getDone());
 
         todo.setProject(todoInputDto.getProject());
 

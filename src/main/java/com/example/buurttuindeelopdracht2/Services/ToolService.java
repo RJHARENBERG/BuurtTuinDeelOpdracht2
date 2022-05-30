@@ -84,7 +84,7 @@ public class ToolService {
         tool.setId(toolInputDto.getId());
         tool.setToolName(toolInputDto.getToolName());
         tool.setType(toolInputDto.getType());
-        tool.setToolName(toolInputDto.getToolName());
+        tool.setDescription(toolInputDto.getDescription());
 
         tool.setReservations(toolInputDto.getReservations());
 
