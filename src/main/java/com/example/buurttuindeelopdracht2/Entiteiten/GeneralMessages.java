@@ -1,8 +1,13 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class GeneralMessages {
@@ -15,6 +20,16 @@ public class GeneralMessages {
     private String message;
 //    private IMG
 
+    @OneToMany(mappedBy = "generalMessages")
+    private Set<Response> responses = new HashSet<>();
+
+    public Set<Response> getResponses() {
+        return responses;
+    }
+
+    public void setResponses(Set<Response> responses) {
+        this.responses = responses;
+    }
 
     public Long getId() {
         return id;

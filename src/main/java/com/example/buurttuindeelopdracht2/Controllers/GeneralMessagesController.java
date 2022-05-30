@@ -2,13 +2,10 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesDto;
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
+import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.GeneralMessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GeneralMessagesController {
@@ -24,4 +21,11 @@ public class GeneralMessagesController {
     public GeneralMessagesDto addGeneralMessages (@RequestBody GeneralMessagesInputDto generalMessagesInputDto){
         return generalMessagesService.addGeneralMessages(generalMessagesInputDto);
     }
+
+    @PutMapping("/addNewResponse/{response_id}/ToGeneralMessages/{generalMessages_id}")
+    public GeneralMessagesDto addNewResponseToGeneralMessages(@PathVariable Long response_id,
+                                           @PathVariable Long generalMessages_id) throws RecordNotFoundException {
+        return generalMessagesService.addNewResponseToGeneralMessages(response_id, generalMessages_id);
+    }
 }
+

@@ -1,8 +1,8 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 public class Response {
@@ -13,6 +13,20 @@ public class Response {
 
     private String message;
     private Long messengerId;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "general_messages_id")
+    private GeneralMessages generalMessages;
+
+
+    public GeneralMessages getGeneralMessages() {
+        return generalMessages;
+    }
+
+    public void setGeneralMessages(GeneralMessages generalMessages) {
+        this.generalMessages = generalMessages;
+    }
 
     public Long getId() {
         return id;
@@ -36,5 +50,10 @@ public class Response {
 
     public void setMessengerId(Long messengerId) {
         this.messengerId = messengerId;
+    }
+
+
+    public void assignGeneralMessages(GeneralMessages generalMessages) {
+        this.generalMessages = generalMessages;
     }
 }
