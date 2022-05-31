@@ -11,7 +11,6 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-
     @Column(nullable = false, unique = true)
     private String userName;
     @Column(nullable = false, length = 255)

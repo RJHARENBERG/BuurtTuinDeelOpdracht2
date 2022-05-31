@@ -111,6 +111,50 @@ data.sql:
 Securetie:
     [] probeer met een json webtoken JWT auterication te werken
     [] voor de techniese keuzes onder bouwen waar om een token een bepaalde tijd geldig is.
+    [] voor de techniese keuzen onderbouwen waar om gekozen voor autorizatie key
+    [] De POM bevat de _spring-boot-starter-security_ dependency  
+    []De applicatie bevat:
+        [] GlobalCorsConfiguration
+        [] SpringSecurityConfig
+        [] AuthenticationController
+        [] UserController
+        [] UserDto (of UserDto en UserInputDto)
+        [] UsernameNotFoundException
+        [] JWTFilter
+        [] Authority
+        [] AuthorityKey
+        [] User
+        [] AuthenticationRequest(vorm van inputDto)
+        [] AuthenticationResponse(vorm van dto)
+        [] UserRepository
+        [] CustomUserDetailService
+        [] UserService
+        [] JwtUtil
+        [] RandomStringGenerator
+    [] Binnen de applicatie wordt rekening gehouden met CORS
+    [] De applicatie moet draaien met toegang tot de endpoints voor de juiste gebruikers geven
+    [v] Voeg de volgende dependencies toe aan je POM.XML.
+        [v] <dependency>
+             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            </dependency>
+        [v] <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+             <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+            </dependency>
+    [v] Voeg de `User`, `Authority` en de `AuthorityKey` toe als modellen.
+    [v] Voeg de `UserDto` toe aan de applicatie.
+    [] Voeg een map toe genaamd `utils`. Voeg hier de `JwtUtil` en de `RandomStringGenerator` toe aan het project.
+    [] Voeg de `UserService` en de `CustomUserDetailService` toe aan het project.
+    [] Voeg de `BadRequestException` en de `UsernameNotFoundException` toe aan je project en zorg dat de exception handlers zijn toegevoegd in je `ExceptionController`.
+    [] Voeg een nieuwe map genaamd `payload` met daarin de `AuthenticationRequest` en de `AuthenticationResponse` toe aan het project.
+    [] Voeg de `AuthenticationController` en de `UserController` toe aan je project.
+    [] Voeg de `JwtRequestFilter` toe aan je project in een map genaamd `filter`.
+    [] Voeg als laatste de `SpringSecurityConfig` en de `GlobalCorsConfiguration` toe aan het project.
+    [] Kijk goed of je in de `SpringSecurityConfig` nog antmatchers wil/moet toevoegen.
+    [] Update de data.sql met users en authorities.
+    [] Check goed of je alle opdracht-comments hebt uitgevoerd.
 
 unittests:
     [] Tevens voert de student unittests uit die gebruikmaken van de drie A’s,

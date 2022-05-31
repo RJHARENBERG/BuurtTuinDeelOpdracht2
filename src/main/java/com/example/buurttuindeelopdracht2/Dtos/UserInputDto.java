@@ -1,6 +1,8 @@
 package com.example.buurttuindeelopdracht2.Dtos;
 
+import com.example.buurttuindeelopdracht2.Entiteiten.Authority;
 import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +13,8 @@ public class UserInputDto {
 
     private String userName;
     private String password;
+    public Boolean enabled;
+    public String apikey;
     //    private IMG
     private String firstName;
     private String lastName;
@@ -20,6 +24,33 @@ public class UserInputDto {
     private String email;
 
     private Set<Tool> tools = new HashSet<>();
+
+    @JsonSerialize
+    public Set<Authority> authorities;
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getApikey() {
+        return apikey;
+    }
+
+    public void setApikey(String apikey) {
+        this.apikey = apikey;
+    }
+
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
 
     public Set<Tool> getTools() {
         return tools;
