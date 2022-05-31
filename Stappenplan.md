@@ -88,12 +88,13 @@ Relaties:
     [v] many to one
     [nvt] voor een many to many moet je twee one to many's gebruiken met een tussen klassen
     [] zie klassen dieagram voor relaties LET OP de Code en de klasse dieagram moeten met el kaar over een komen!!!
+    [] als techniese keuze onder bouwen waar om er extra klassens zijn gemaakt zo als todo in projecten
 
 post man:
     [v] maak in poost man een map ge naamt TestEindpointsBuurtTuin
     [v] maak hier in voor alle entpoints een test reqwest
     [] maak een export aan om deze data toe te voegen aan de zip met documentatie
-    [] TestEindpointsBuurtTuin -> ... -> export
+        [] TestEindpointsBuurtTuin -> ... -> export
 
 
 dubbel/vervuiling van data:
@@ -109,6 +110,7 @@ data.sql:
 
 Securetie:
     [] probeer met een json webtoken JWT auterication te werken
+    [] voor de techniese keuzes onder bouwen waar om een token een bepaalde tijd geldig is.
 
 unittests:
     [] Tevens voert de student unittests uit die gebruikmaken van de drie A’s,

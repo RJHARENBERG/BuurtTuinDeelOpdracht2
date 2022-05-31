@@ -12,18 +12,49 @@ public class User {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String userName;
+    @Column(nullable = false, length = 255)
     private String password;
+    @Column(nullable = false)
+    private boolean enabled = true;
+    @Column
+    private String apikey;
+    @Column
+    private String email;
 //    private IMG
     private String firstName;
     private String lastName;
     private String zipcode;
     private String streetName;
     private Long houseNumber;
-    private String email;
 
     @OneToMany(mappedBy = "user")
     private Set<Tool> tools = new HashSet<>();
+
+    @OneToMany(
+            targetEntity = Authority.class,
+            mappedBy = "username",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    private Set<Authority> authorities = new HashSet<>();
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getApikey() {
+        return apikey;
+    }
+
+    public void setApikey(String apikey) {
+        this.apikey = apikey;
+    }
 
     public String getLastName() {
         return lastName;

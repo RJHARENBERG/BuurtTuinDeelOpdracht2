@@ -1,7 +1,5 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
