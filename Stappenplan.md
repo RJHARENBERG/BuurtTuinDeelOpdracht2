@@ -109,27 +109,27 @@ data.sql:
     [] voeg in deze map start data om de aplicatie te kunnen starten
 
 Securetie:
-    [] probeer met een json webtoken JWT auterication te werken
+    [v] probeer met een json webtoken JWT auterication te werken
     [] voor de techniese keuzes onder bouwen waar om een token een bepaalde tijd geldig is.
     [] voor de techniese keuzen onderbouwen waar om gekozen voor autorizatie key
-    [] De POM bevat de _spring-boot-starter-security_ dependency  
+    [v] De POM bevat de _spring-boot-starter-security_ dependency  
     []De applicatie bevat:
-        [] GlobalCorsConfiguration
-        [] SpringSecurityConfig
-        [] AuthenticationController
-        [] UserController
-        [] UserDto (of UserDto en UserInputDto)
-        [] UsernameNotFoundException
-        [] JWTFilter
+        [v] GlobalCorsConfiguration
+        [v] SpringSecurityConfig
+        [v] AuthenticationController
+        [v] UserController
+        [v] UserDto (of UserDto en UserInputDto)
+        [v] UsernameNotFoundException
+        [v] JWTFilter
         [] Authority
         [] AuthorityKey
-        [] User
+        [v] User
         [] AuthenticationRequest(vorm van inputDto)
         [] AuthenticationResponse(vorm van dto)
-        [] UserRepository
-        [] CustomUserDetailService
-        [] UserService
-        [] JwtUtil
+        [v] UserRepository
+        [v] CustomUserDetailService
+        [v] UserService
+        [v] JwtUtil
         [] RandomStringGenerator
     [] Binnen de applicatie wordt rekening gehouden met CORS
     [] De applicatie moet draaien met toegang tot de endpoints voor de juiste gebruikers geven
@@ -152,8 +152,8 @@ Securetie:
     [v] Voeg een nieuwe map genaamd `payload` met daarin de `AuthenticationRequest` en de `AuthenticationResponse` toe 
         aan het project.
     [v] Voeg de `AuthenticationController` en de `UserController` toe aan je project.
-    [] Voeg de `JwtRequestFilter` toe aan je project in een map genaamd `filter`.
-    [] Voeg als laatste de `SpringSecurityConfig` en de `GlobalCorsConfiguration` toe aan het project.
+    [v] Voeg de `JwtRequestFilter` toe aan je project in een map genaamd `filter`.
+    [v] Voeg als laatste de `SpringSecurityConfig` en de `GlobalCorsConfiguration` toe aan het project.
     [] Kijk goed of je in de `SpringSecurityConfig` nog antmatchers wil/moet toevoegen.
     [] Update de data.sql met users en authorities.
     [] Check goed of je alle opdracht-comments hebt uitgevoerd.
