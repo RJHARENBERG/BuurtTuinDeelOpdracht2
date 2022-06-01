@@ -149,9 +149,9 @@ Securetie:
     [v] Voeg de `UserService` en de `CustomUserDetailService` toe aan het project.
     [v] Voeg de `BadRequestException` en de `UsernameNotFoundException` toe aan je project en zorg dat de exception 
         handlers zijn toegevoegd in je `ExceptionController`.
-    [] Voeg een nieuwe map genaamd `payload` met daarin de `AuthenticationRequest` en de `AuthenticationResponse` toe 
+    [v] Voeg een nieuwe map genaamd `payload` met daarin de `AuthenticationRequest` en de `AuthenticationResponse` toe 
         aan het project.
-    [] Voeg de `AuthenticationController` en de `UserController` toe aan je project.
+    [v] Voeg de `AuthenticationController` en de `UserController` toe aan je project.
     [] Voeg de `JwtRequestFilter` toe aan je project in een map genaamd `filter`.
     [] Voeg als laatste de `SpringSecurityConfig` en de `GlobalCorsConfiguration` toe aan het project.
     [] Kijk goed of je in de `SpringSecurityConfig` nog antmatchers wil/moet toevoegen.
