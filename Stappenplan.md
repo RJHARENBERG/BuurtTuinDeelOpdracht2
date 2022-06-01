@@ -145,7 +145,7 @@ Securetie:
             </dependency>
     [v] Voeg de `User`, `Authority` en de `AuthorityKey` toe als modellen.
     [v] Voeg de `UserDto` toe aan de applicatie.
-    [] Voeg een map toe genaamd `utils`. Voeg hier de `JwtUtil` en de `RandomStringGenerator` toe aan het project.
+    [v] Voeg een map toe genaamd `utils`. Voeg hier de `JwtUtil` en de `RandomStringGenerator` toe aan het project.
     [] Voeg de `UserService` en de `CustomUserDetailService` toe aan het project.
     [] Voeg de `BadRequestException` en de `UsernameNotFoundException` toe aan je project en zorg dat de exception handlers zijn toegevoegd in je `ExceptionController`.
     [] Voeg een nieuwe map genaamd `payload` met daarin de `AuthenticationRequest` en de `AuthenticationResponse` toe aan het project.
