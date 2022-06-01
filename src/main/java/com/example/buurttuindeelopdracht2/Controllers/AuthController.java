@@ -34,4 +34,3 @@ public class AuthController {
                 .body("Token generated: " + token);
     }
 }
-
