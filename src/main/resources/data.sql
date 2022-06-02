@@ -1,0 +1,1 @@
+INSERT INTO Buren (id,user_name,password,enabled,role,first_name,last_name,zipcode,street_name,house_number,email) VALUES (101,'admin','password',true,'ADMIN','Karel','Appel','1234AA','schilderstraat',53,'admin@gmail.com')

@@ -14,6 +14,10 @@ public class User {
 
     private String userName;
     private String password;
+    private Boolean enabled;
+    private String role;
+
+
 //    private IMG
     private String firstName;
     private String lastName;
@@ -25,10 +29,25 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Tool> tools = new HashSet<>();
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

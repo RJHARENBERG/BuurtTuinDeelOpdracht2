@@ -14,11 +14,16 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.sql.DataSource;
+
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     JwtService jwtService;
+
+    @Autowired
+    DataSource dataSource;
 
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
@@ -33,8 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .inMemoryAuthentication()
-                .withUser("karel").password("{noop}appel").roles("ARTIST");
+                .jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("select user_name, password, enabled "
+                        + "from Buren "
+                        + "where user_name=?")
+                .authoritiesByUsernameQuery("select user_name, role "
+                        +"from Buren "
+                        +"where user_name=?");
     }
 
     @Override
@@ -44,11 +55,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests().antMatchers(HttpMethod.POST, "/auth").permitAll()
+                .authorizeRequests().antMatchers(HttpMethod.POST, "/auth", "/addUser").permitAll()
                 .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
-                .addFilterBefore(new JwtRequestFilter(jwtService, userDetailsService()), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtRequestFilter(
+                        jwtService,
+                        userDetailsService()),
+                        UsernamePasswordAuthenticationFilter.class)
                 .csrf().disable();
     }
 }
