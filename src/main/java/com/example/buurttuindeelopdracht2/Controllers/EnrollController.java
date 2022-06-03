@@ -3,7 +3,6 @@ package com.example.buurttuindeelopdracht2.Controllers;
 import com.example.buurttuindeelopdracht2.Dtos.EnrollDto;
 import com.example.buurttuindeelopdracht2.Dtos.EnrollInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
-import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Services.EnrollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
