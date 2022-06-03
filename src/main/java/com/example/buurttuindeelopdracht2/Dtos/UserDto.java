@@ -9,9 +9,8 @@ import java.util.Set;
 
 public class UserDto {
 
-    private Long id;
-
     private String userName;
+
     private String password;
     public Boolean enabled;
     public String apikey;
@@ -58,15 +57,6 @@ public class UserDto {
 
     public void setTools(Set<Tool> tools) {
         this.tools = tools;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getLastName() {

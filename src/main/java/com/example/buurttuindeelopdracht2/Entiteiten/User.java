@@ -9,8 +9,6 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue
-    private Long id;
     @Column(nullable = false, unique = true)
     private String userName;
     @Column(nullable = false, length = 255)
@@ -39,6 +37,14 @@ public class User {
             fetch = FetchType.EAGER)
     private Set<Authority> authorities = new HashSet<>();
 
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
@@ -61,14 +67,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUserName() {
@@ -135,4 +133,11 @@ public class User {
         this.tools = tools;
     }
 
+    public void addAuthority(Authority authority) {
+        this.authorities = authorities;
+    }
+
+    public void removeAuthority(Authority authorityToRemove) {
+        this.authorities = authorities;
+    }
 }

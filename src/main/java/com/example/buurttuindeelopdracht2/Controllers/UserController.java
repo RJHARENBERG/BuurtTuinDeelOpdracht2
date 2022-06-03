@@ -34,45 +34,45 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PutMapping("/addNewTool/{tool_id}/ToUser/{user_id}")
+    @PutMapping("/addNewTool/{tool_id}/ToUser/{userName}")
     public UserDto addNewToolToUser(@PathVariable Long tool_id,
-                                    @PathVariable Long user_id) throws RecordNotFoundException {
-        return userService.addNewToolToUser(tool_id, user_id);
+                                    @PathVariable String userName) throws RecordNotFoundException {
+        return userService.addNewToolToUser(tool_id, userName);
     }
 
-    @GetMapping("/findUserById/{id}")
-    public UserDto findUserById(@PathVariable User id) throws RecordNotFoundException {
-        return userService.getUserById(id);
+    @GetMapping("/findUserById/{userName}")
+    public UserDto findUserById(@PathVariable String userName) throws RecordNotFoundException {
+        return userService.getUser(userName);
     }
 
-    @DeleteMapping("/deleteUserById/{id}")
-    public String deleteUser(@PathVariable User id) {
-        return userService.deleteUser(id);
+    @DeleteMapping("/deleteUserById/{userName}")
+    public String deleteUser(@PathVariable String userName) {
+        return userService.deleteUser(userName);
     }
 
     //    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    @GetMapping(value = "/{username}/authorities")
-    public ResponseEntity<Object> getUserAuthorities(@PathVariable("username") String username) {
-        return ResponseEntity.ok().body(userService.getAuthorities(username));
+    @GetMapping(value = "/{userName}/authorities")
+    public ResponseEntity<Object> getUserAuthorities(@PathVariable("userName") String userName) throws RecordNotFoundException {
+        return ResponseEntity.ok().body(userService.getAuthorities(userName));
     }
 
-    @PostMapping(value = "/{username}/authorities")
-    public ResponseEntity<Object> addUserAuthority(@PathVariable("username") String username,
+    @PostMapping(value = "/{userName}/authorities")
+    public ResponseEntity<Object> addUserAuthority(@PathVariable("userName") String userName,
                                                    @RequestBody Map<String, Object> fields) {
         try {
             String authorityName = (String) fields.get("authority");
-            userService.addAuthority(username, authorityName);
+            userService.addAuthority(userName, authorityName);
             return ResponseEntity.noContent().build();
-        } catch (Exception ex) {
+        } catch (Exception | RecordNotFoundException ex) {
             throw new BadRequestException();
         }
     }
 
-    @DeleteMapping(value = "/{username}/authorities/{authority}")
-    public ResponseEntity<Object> deleteUserAuthority(@PathVariable("username") String username,
-                                                      @PathVariable("authority") String authority) {
-        userService.removeAuthority(username, authority);
+    @DeleteMapping(value = "/{userName}/authorities/{authority}")
+    public ResponseEntity<Object> deleteUserAuthority(@PathVariable("userName") String userName,
+                                                      @PathVariable("authority") String authority) throws RecordNotFoundException {
+        userService.removeAuthority(userName, authority);
         return ResponseEntity.noContent().build();
     }
 

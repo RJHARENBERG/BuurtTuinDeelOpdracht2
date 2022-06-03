@@ -1,6 +1,6 @@
 package com.example.buurttuindeelopdracht2.Filter;
 
-import com.example.buurttuindeelopdracht2.Services.CustomUserDetailService;
+import com.example.buurttuindeelopdracht2.Services.CustomUserDetailsService;
 import com.example.buurttuindeelopdracht2.Utiles.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,11 +20,11 @@ import java.io.IOException;
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     /*autowire [v] customUserDetailService en [v] jwtUtil*/
-    private final CustomUserDetailService customUserDetailService;
+    private final CustomUserDetailsService customUserDetailService;
     private final JwtUtil jwtUtil;
 
     @Autowired
-    public JwtRequestFilter(CustomUserDetailService customUserDetailService, JwtUtil jwtUtil) {
+    public JwtRequestFilter(CustomUserDetailsService customUserDetailService, JwtUtil jwtUtil) {
         this.customUserDetailService = customUserDetailService;
         this.jwtUtil = jwtUtil;
     }
@@ -45,7 +45,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = this.customUserDetailService.loadUserByUsername(username);
 
             if (jwtUtil.validateToken(jwt, userDetails)) {
 

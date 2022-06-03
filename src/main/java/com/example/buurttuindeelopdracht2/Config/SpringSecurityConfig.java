@@ -1,11 +1,12 @@
 package com.example.buurttuindeelopdracht2.Config;
 
 import com.example.buurttuindeelopdracht2.Filter.JwtRequestFilter;
-import com.example.buurttuindeelopdracht2.Services.CustomUserDetailService;
+import com.example.buurttuindeelopdracht2.Services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,10 +21,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /*autowire [v] customUserDetailService en [v] jwtRequestFilter*/
-    private final CustomUserDetailService customUserDetailService;
+    private final CustomUserDetailsService customUserDetailService;
     private final JwtRequestFilter jwtRequestFilter;
 
-    public SpringSecurityConfig(CustomUserDetailService customUserDetailService, JwtRequestFilter jwtRequestFilter) {
+    public SpringSecurityConfig(CustomUserDetailsService customUserDetailService, JwtRequestFilter jwtRequestFilter) {
         this.customUserDetailService = customUserDetailService;
         this.jwtRequestFilter = jwtRequestFilter;
     }

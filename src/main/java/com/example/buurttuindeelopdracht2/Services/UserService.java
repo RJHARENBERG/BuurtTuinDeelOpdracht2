@@ -9,6 +9,7 @@ import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -43,15 +44,18 @@ public class UserService {
         return userDtos;
     }
 
-    public UserDto getUserById(User id) throws RecordNotFoundException {
-        User userFound = userRepository.getById(id.getId());
-        if (userFound == null) {
-            throw new RecordNotFoundException("cannot find user" + id);
+    public UserDto getUser(String userName) {
+        UserDto dto = new UserDto();
+        Optional<User> user = userRepository.findById(userName);
+        if (user.isPresent()){
+            dto = fromUser(user.get());
+        }else {
+            throw new UsernameNotFoundException(userName);
         }
-        return fromUser(userFound);
+        return dto;
     }
 
-    public UserDto addNewToolToUser(Long toolId, Long userId) throws RecordNotFoundException {
+    public UserDto addNewToolToUser(Long toolId, String userId) throws RecordNotFoundException {
         Optional<Tool> optionalTool = toolRepository.findById(toolId);
         Optional<User> optionalUser = userRepository.findById(userId);
 
@@ -69,8 +73,8 @@ public class UserService {
         return fromUser(user);
     }
 
-    public String deleteUser(User id) {
-        userRepository.deleteById(id.getId());
+    public String deleteUser(String id) {
+        userRepository.deleteById(id);
         return "User removed !!" + id;
     }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -79,14 +83,14 @@ public class UserService {
         return userRepository.existsById(userName);
     }
 
-    public Set<Authority> getAuthorities(String userName) {
+    public Set<Authority> getAuthorities(String userName) throws RecordNotFoundException {
         if (!userRepository.existsById(userName)) throw new RecordNotFoundException(userName);
         User user = userRepository.findById(userName).get();
         UserDto userDto = fromUser(user);
         return userDto.getAuthorities();
     }
 
-    public void addAuthority(String username, String authority) {
+    public void addAuthority(String username, String authority) throws RecordNotFoundException {
 
         if (!userRepository.existsById(username)) throw new RecordNotFoundException(username);
         User user = userRepository.findById(username).get();
@@ -94,7 +98,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void removeAuthority(String username, String authority) {
+    public void removeAuthority(String username, String authority) throws RecordNotFoundException {
         if (!userRepository.existsById(username)) throw new RecordNotFoundException(username);
         User user = userRepository.findById(username).get();
         Authority authorityToRemove = user.getAuthorities().stream().filter((a) -> a.getAuthority().equalsIgnoreCase(authority)).findAny().get();
@@ -111,7 +115,6 @@ public class UserService {
     public static UserDto fromUser(User user) {
         var dto = new UserDto();
 
-        dto.setId(user.getId());
         dto.setUserName(user.getUserName());
         dto.setPassword(user.getPassword());
         dto.setFirstName(user.getFirstName());
@@ -122,13 +125,13 @@ public class UserService {
         dto.setEmail(user.getEmail());
 
         dto.setTools(user.getTools());
+        dto.setAuthorities(user.getAuthorities());
         return dto;
     }
 
     public static User toUser(UserInputDto userInputDto) {
         var user = new User();
 
-        user.setId(userInputDto.getId());
         user.setUserName(userInputDto.getUserName());
         user.setPassword(userInputDto.getPassword());
         user.setFirstName(userInputDto.getFirstName());
@@ -139,6 +142,7 @@ public class UserService {
         user.setEmail(userInputDto.getEmail());
 
         user.setTools(userInputDto.getTools());
+        user.setAuthorities(userInputDto.getAuthorities());
         return user;
     }
 
