@@ -7,10 +7,10 @@ import java.util.Set;
 
 public class UserDto {
 
-    private Long id;
-
     private String userName;
     private String password;
+    private Boolean enabled;
+    private String role;
     //    private IMG
     private String firstName;
     private String lastName;
@@ -29,14 +29,22 @@ public class UserDto {
         this.tools = tools;
     }
 
-
-    public Long getId() {
-        return id;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
 
     public String getLastName() {
         return lastName;

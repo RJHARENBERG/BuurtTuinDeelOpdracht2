@@ -30,20 +30,20 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PutMapping("/addNewTool/{tool_id}/ToUser/{user_id}")
+    @PutMapping("/addNewTool/{tool_id}/ToUser/{userName}")
     public UserDto addNewToolToUser(@PathVariable Long tool_id,
-                                    @PathVariable Long user_id) throws RecordNotFoundException {
-        return userService.addNewToolToUser(tool_id, user_id);
+                                    @PathVariable String userName) throws RecordNotFoundException {
+        return userService.addNewToolToUser(tool_id, userName);
     }
 
-    @GetMapping("/findUserById/{id}")
-    public UserDto findUserById(@PathVariable User id) throws RecordNotFoundException {
-        return userService.getUserById(id);
+    @GetMapping("/findUserById/{userName}")
+    public UserDto findUserById(@PathVariable String userName) throws RecordNotFoundException {
+        return userService.getUser(userName);
     }
 
-    @DeleteMapping("/deleteUserById/{id}")
-    public String deleteUser(@PathVariable User id) {
-        return userService.deleteUser(id);
+    @DeleteMapping("/deleteUserById/{userName}")
+    public String deleteUser(@PathVariable String userName) {
+        return userService.deleteUser(userName);
     }
 
 
