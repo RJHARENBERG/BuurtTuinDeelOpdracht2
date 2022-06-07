@@ -16,13 +16,11 @@ import java.util.Set;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    private final UserService userService;
-
     @Autowired
-    public CustomUserDetailsService(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
+//    @Autowired
+//    private AuthorityService authorityService;
 
     @Override
     public UserDetails loadUserByUsername(String username) {

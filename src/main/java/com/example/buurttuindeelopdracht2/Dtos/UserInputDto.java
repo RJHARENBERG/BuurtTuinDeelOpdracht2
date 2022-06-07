@@ -9,18 +9,19 @@ import java.util.Set;
 
 public class UserInputDto {
 
-    private String userName;
+    public String username;
 
-    private String password;
+    public String password;
     public Boolean enabled;
     public String apikey;
+    public String email;
     //    private IMG
     private String firstName;
     private String lastName;
     private String zipcode;
     private String streetName;
     private Long houseNumber;
-    private String email;
+
 
     private Set<Tool> tools = new HashSet<>();
 
@@ -67,12 +68,12 @@ public class UserInputDto {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

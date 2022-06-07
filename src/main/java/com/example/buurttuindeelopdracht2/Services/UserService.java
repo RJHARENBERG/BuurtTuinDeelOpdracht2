@@ -8,6 +8,7 @@ import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.UserRepository;
+import com.example.buurttuindeelopdracht2.Utiles.RandomStringGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,7 @@ public class UserService {
         return userDtos;
     }
 
+
     public UserDto getUser(String userName) {
         UserDto dto = new UserDto();
         Optional<User> user = userRepository.findById(userName);
@@ -79,27 +81,37 @@ public class UserService {
     }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public boolean userExists(String userName) {
-        return userRepository.existsById(userName);
+    public String createUser(UserInputDto userInputDto) {
+        String randomString = RandomStringGenerator.generateAlphaNumeric(20);
+        userInputDto.setApikey(randomString);
+        User newUser = userRepository.save(toUser(userInputDto));
+        return newUser.getUsername();
     }
 
-    public Set<Authority> getAuthorities(String userName) throws RecordNotFoundException {
-        if (!userRepository.existsById(userName)) throw new RecordNotFoundException(userName);
-        User user = userRepository.findById(userName).get();
+    public void updateUser(String username, UserDto newUser) throws RecordNotFoundException {
+        if (!userRepository.existsById(username)) throw new RecordNotFoundException();
+        User user = userRepository.findById(username).get();
+        user.setPassword(newUser.getPassword());
+        userRepository.save(user);
+    }
+
+    public Set<Authority> getAuthorities(String username) {
+        if (!userRepository.existsById(username)) throw new UsernameNotFoundException(username);
+        User user = userRepository.findById(username).get();
         UserDto userDto = fromUser(user);
         return userDto.getAuthorities();
     }
 
-    public void addAuthority(String username, String authority) throws RecordNotFoundException {
+    public void addAuthority(String username, String authority) {
 
-        if (!userRepository.existsById(username)) throw new RecordNotFoundException(username);
+        if (!userRepository.existsById(username)) throw new UsernameNotFoundException(username);
         User user = userRepository.findById(username).get();
         user.addAuthority(new Authority(username, authority));
         userRepository.save(user);
     }
 
-    public void removeAuthority(String username, String authority) throws RecordNotFoundException {
-        if (!userRepository.existsById(username)) throw new RecordNotFoundException(username);
+    public void removeAuthority(String username, String authority) {
+        if (!userRepository.existsById(username)) throw new UsernameNotFoundException(username);
         User user = userRepository.findById(username).get();
         Authority authorityToRemove = user.getAuthorities().stream().filter((a) -> a.getAuthority().equalsIgnoreCase(authority)).findAny().get();
         user.removeAuthority(authorityToRemove);
@@ -107,15 +119,12 @@ public class UserService {
     }
 
 
-
-
-
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     public static UserDto fromUser(User user) {
         var dto = new UserDto();
 
-        dto.setUserName(user.getUserName());
+        dto.setUsername(user.getUsername());
         dto.setPassword(user.getPassword());
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
@@ -132,7 +141,7 @@ public class UserService {
     public static User toUser(UserInputDto userInputDto) {
         var user = new User();
 
-        user.setUserName(userInputDto.getUserName());
+        user.setUsername(userInputDto.getUsername());
         user.setPassword(userInputDto.getPassword());
         user.setFirstName(userInputDto.getFirstName());
         user.setLastName(userInputDto.getLastName());

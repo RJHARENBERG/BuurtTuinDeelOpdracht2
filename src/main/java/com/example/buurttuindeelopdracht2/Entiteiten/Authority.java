@@ -2,7 +2,6 @@ package com.example.buurttuindeelopdracht2.Entiteiten;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
 @Entity
 @IdClass(AuthorityKey.class)
 @Table(name = "authorities")

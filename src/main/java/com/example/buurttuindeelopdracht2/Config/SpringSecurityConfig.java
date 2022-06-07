@@ -20,18 +20,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /*autowire [v] customUserDetailService en [v] jwtRequestFilter*/
-    private final CustomUserDetailsService customUserDetailService;
-    private final JwtRequestFilter jwtRequestFilter;
+    @Autowired
+    public CustomUserDetailsService customUserDetailsService;
 
-    public SpringSecurityConfig(CustomUserDetailsService customUserDetailService, JwtRequestFilter jwtRequestFilter) {
-        this.customUserDetailService = customUserDetailService;
-        this.jwtRequestFilter = jwtRequestFilter;
-    }
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customUserDetailService);
+        auth.userDetailsService(customUserDetailsService);
     }
 
     @Override
@@ -56,9 +53,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/users").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/users/**").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
-//                /*voeg de antmatchers toe voor admin(post en delete) en user (overige)*/
                 .antMatchers("/authenticated").authenticated()
-                .antMatchers("/authenticate").permitAll()/*allen dit punt mag toegankelijk zijn voor niet ingelogde gebruikers*/
+                .antMatchers("/authenticate").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement()

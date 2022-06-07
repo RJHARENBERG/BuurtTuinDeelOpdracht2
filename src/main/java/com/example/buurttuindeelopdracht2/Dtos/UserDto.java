@@ -9,30 +9,41 @@ import java.util.Set;
 
 public class UserDto {
 
-    private String userName;
+    public String username;
 
-    private String password;
+    public String password;
     public Boolean enabled;
     public String apikey;
+    public String email;
+
+
     //    private IMG
     private String firstName;
     private String lastName;
     private String zipcode;
     private String streetName;
     private Long houseNumber;
-    private String email;
+
 
     private Set<Tool> tools = new HashSet<>();
 
     @JsonSerialize
     public Set<Authority> authorities;
 
-    public Set<Authority> getAuthorities() {
-        return authorities;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAuthorities(Set<Authority> authorities) {
-        this.authorities = authorities;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Boolean getEnabled() {
@@ -51,12 +62,12 @@ public class UserDto {
         this.apikey = apikey;
     }
 
-    public Set<Tool> getTools() {
-        return tools;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setTools(Set<Tool> tools) {
-        this.tools = tools;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -65,30 +76,6 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getZipcode() {
@@ -121,5 +108,21 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Tool> getTools() {
+        return tools;
+    }
+
+    public void setTools(Set<Tool> tools) {
+        this.tools = tools;
+    }
+
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
     }
 }
