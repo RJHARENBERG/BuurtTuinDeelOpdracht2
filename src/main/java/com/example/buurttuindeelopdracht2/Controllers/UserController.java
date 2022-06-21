@@ -39,8 +39,8 @@ public class UserController {
         return userService.addNewToolToUser(tool_id, username);
     }
 
-    @GetMapping("/findUserById/{username}")
-    public UserDto findUserById(@PathVariable String username) throws RecordNotFoundException {
+    @GetMapping("/findUserByUsername/{username}")
+    public UserDto findUserById(@PathVariable String username) {
         return userService.getUser(username);
     }
 

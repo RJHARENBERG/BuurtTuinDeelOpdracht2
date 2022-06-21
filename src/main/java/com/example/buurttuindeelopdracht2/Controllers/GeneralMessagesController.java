@@ -9,6 +9,7 @@ import com.example.buurttuindeelopdracht2.Services.GeneralMessagesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class GeneralMessagesController {
 

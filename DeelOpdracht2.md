@@ -265,3 +265,10 @@ Criterium 4.2 5%
    [] minimaal 10 gemaakte technische keuzes.
    [] De student beschrijft realistische limitaties van zijn applicatie
    [] en welke doorontwikkelingen mogelijk en/of wenselijk zijn.
+
+Let OP!!
+
+bij het veranrwoording document dat bij het uploden van afbildingen er een verschil zit tussen windows of mac ge bruikers 
+in het op slaan van het mapje in de // 
+dit is terug te zien in de fulstac workshop  over hoe te kopelen van frond en back end 15 jun ongeveer van af
+tijd 0:55:00

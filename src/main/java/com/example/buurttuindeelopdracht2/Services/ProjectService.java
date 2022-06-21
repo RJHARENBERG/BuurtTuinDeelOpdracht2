@@ -97,6 +97,9 @@ public class ProjectService {
         dto.setName(project.getName());
         dto.setDate(project.getDate());
         dto.setLocation(project.getLocation());
+        dto.setDescription(project.getDescription());
+
+//        dto.setFile(project.getFile());
 
         dto.setTodos(project.getTodos());
         dto.setEnrolls(project.getEnrolls());
@@ -111,6 +114,9 @@ public class ProjectService {
         project.setName(projectInputDto.getName());
         project.setDate(projectInputDto.getDate());
         project.setLocation(projectInputDto.getLocation());
+        project.setDescription(projectInputDto.getDescription());
+
+//        project.setFile(projectInputDto.getFile());
 
         project.setTodos(projectInputDto.getTodos());
         project.setEnrolls(projectInputDto.getEnrolls());

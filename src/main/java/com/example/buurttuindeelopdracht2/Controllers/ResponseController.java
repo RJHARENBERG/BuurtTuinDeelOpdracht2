@@ -7,6 +7,7 @@ import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
 import com.example.buurttuindeelopdracht2.Services.ResponseService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class ResponseController {
 

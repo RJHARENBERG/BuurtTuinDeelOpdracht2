@@ -37,6 +37,17 @@ public class User {
             fetch = FetchType.EAGER)
     private Set<Authority> authorities = new HashSet<>();
 
+    @OneToOne
+    FileUploadResponse file;
+
+    public FileUploadResponse getFile() {
+        return file;
+    }
+
+    public void setFile(FileUploadResponse file) {
+        this.file = file;
+    }
+
     public Set<Authority> getAuthorities() {
         return authorities;
     }

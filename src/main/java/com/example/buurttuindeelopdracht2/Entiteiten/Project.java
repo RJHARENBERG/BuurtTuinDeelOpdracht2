@@ -1,10 +1,7 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +15,10 @@ public class Project {
     private String name;
     private String date;
     private String location;
+    private String description;
+
+//    @OneToOne
+//    FileUploadResponse file;
 
     @OneToMany(mappedBy = "project")
     private Set<Enroll> enrolls = new HashSet<>();
@@ -40,6 +41,14 @@ public class Project {
     public void setEnrolls(Set<Enroll> enrolls) {
         this.enrolls = enrolls;
     }
+
+//    public FileUploadResponse getFile() {
+//        return file;
+//    }
+//
+//    public void setFile(FileUploadResponse file) {
+//        this.file = file;
+//    }
 
     public Long getId() {
         return id;
@@ -71,5 +80,13 @@ public class Project {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class ProjectController {
 
@@ -24,6 +25,7 @@ public class ProjectController {
     @PostMapping("/addProject")
     public ProjectDto addProject (@RequestBody ProjectInputDto projectInputDto){
         return projectService.addProject(projectInputDto);
+
     }
 
     @GetMapping("/allProjects")
