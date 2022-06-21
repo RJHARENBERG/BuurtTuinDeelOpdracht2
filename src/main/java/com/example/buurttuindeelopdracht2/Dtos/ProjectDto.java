@@ -1,7 +1,6 @@
 package com.example.buurttuindeelopdracht2.Dtos;
 
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
-import com.example.buurttuindeelopdracht2.Entiteiten.FileUploadResponse;
 import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
 
 import java.util.HashSet;
@@ -16,18 +15,12 @@ public class ProjectDto {
     private String location;
     private String description;
 
-    FileUploadResponse file;
+
 
     private Set<Enroll> enrolls = new HashSet<>();
     private Set<Todo> todos =new HashSet<>();
 
-    public FileUploadResponse getFile() {
-        return file;
-    }
 
-    public void setFile(FileUploadResponse file) {
-        this.file = file;
-    }
 
     public Set<Enroll> getEnrolls() {
         return enrolls;
