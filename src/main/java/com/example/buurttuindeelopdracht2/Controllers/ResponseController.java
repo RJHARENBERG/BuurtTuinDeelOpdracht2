@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value = "/responses")
 public class ResponseController {
 
     private final ResponseService responseService;

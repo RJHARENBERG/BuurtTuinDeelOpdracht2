@@ -14,6 +14,7 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value = "/users")
 public class UserController {
 
     private final UserService userService;
@@ -27,7 +28,6 @@ public class UserController {
     public UserDto addUser(@RequestBody UserInputDto userInputDto) {
         return userService.addUser(userInputDto);
     }
-    
 
     @GetMapping("/allUsers")
     public List<UserDto> getAllUsers() {

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value = "/enrolls")
 public class EnrollController {
 
     private final EnrollService enrollService;

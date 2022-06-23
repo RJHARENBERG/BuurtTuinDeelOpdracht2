@@ -23,11 +23,28 @@ public class ReservationService {
         this.reservationRepository = reservationRepository;
     }
 
+
+
+
+
+
+
     public ReservationDto addReservation(ReservationInputDto reservationInputDto) {
         Reservation reservation = toReservation(reservationInputDto);
         reservationRepository.save(reservation);
         return fromReservation(reservation);
     }
+
+
+
+
+
+
+
+
+
+
+
 
     public List<ReservationDto> getAllReservations() {
         List<ReservationDto> reservationDtos = new ArrayList<>();

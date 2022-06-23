@@ -2,11 +2,14 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
 import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
+import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
 import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.ReservationRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
+import com.example.buurttuindeelopdracht2.Repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +22,23 @@ public class ToolService {
 
     private final ToolRepository toolRepository;
     private final ReservationRepository reservationRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public ToolService(ToolRepository toolRepository, ReservationRepository reservationRepository) {
+    public ToolService(ToolRepository toolRepository, ReservationRepository reservationRepository, UserRepository userRepository) {
         this.toolRepository = toolRepository;
         this.reservationRepository = reservationRepository;
+        this.userRepository = userRepository;
     }
 
-    public ToolDto addTool(ToolInputDto toolInputDto) {
+    public ToolDto addTool(ToolInputDto toolInputDto, String username) throws RecordNotFoundException {
         Tool tool = toTool(toolInputDto);
         toolRepository.save(tool);
+        User user = userRepository.findById(username).
+                orElseThrow(() -> new RecordNotFoundException("username " + username + " doesn't exist"));
+        tool.assignUser(user);
+        userRepository.save(user);
+
         return fromTool(tool);
     }
 

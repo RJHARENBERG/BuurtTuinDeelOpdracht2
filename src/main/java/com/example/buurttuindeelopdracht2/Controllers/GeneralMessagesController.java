@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value = "/generalMessages")
 public class GeneralMessagesController {
 
     private final GeneralMessagesService generalMessagesService;

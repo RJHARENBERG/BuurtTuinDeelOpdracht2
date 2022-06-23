@@ -14,6 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value = "/projects")
 public class ProjectController {
 
     private final ProjectService projectService;

@@ -14,6 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping(value = "/tools")
 public class ToolController {
 
     private final ToolService toolService;
@@ -23,9 +24,10 @@ public class ToolController {
         this.toolService = toolService;
     }
 
-    @PostMapping("/addTool")
-    public ToolDto addTool (@RequestBody ToolInputDto toolInputDto){
-        return toolService.addTool(toolInputDto);
+    @PostMapping("/addTool/{username}")
+    public ToolDto addTool (@PathVariable String username,
+                            @RequestBody ToolInputDto toolInputDto) throws RecordNotFoundException {
+        return toolService.addTool(toolInputDto, username);
     }
 
     @GetMapping("/allTools")
