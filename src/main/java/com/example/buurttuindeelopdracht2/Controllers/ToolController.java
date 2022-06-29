@@ -35,16 +35,9 @@ public class ToolController {
         return toolService.getAllTools();
     }
 
-    @PutMapping("/addNewReservation/{reservation_id}/ToTool/{tool_id}")
-    public ToolDto addNewReservationToTool(@PathVariable Long reservation_id,
-                                    @PathVariable Long tool_id) throws RecordNotFoundException {
-        return toolService.addNewReservationToTool(reservation_id, tool_id);
-    }
-
     @DeleteMapping("/deleteToolById/{id}")
     public String deleteTool(@PathVariable Tool id) {
         return toolService.deleteTool(id);
     }
-
 
 }

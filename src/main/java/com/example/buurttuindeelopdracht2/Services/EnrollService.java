@@ -1,13 +1,10 @@
 package com.example.buurttuindeelopdracht2.Services;
 
-import com.example.buurttuindeelopdracht2.Dtos.EnrollDto;
-import com.example.buurttuindeelopdracht2.Dtos.EnrollInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolInputDto;
-import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
-import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
-import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
+import com.example.buurttuindeelopdracht2.Dtos.*;
+import com.example.buurttuindeelopdracht2.Entiteiten.*;
+import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.EnrollRepository;
+import com.example.buurttuindeelopdracht2.Repositorys.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +12,31 @@ import org.springframework.stereotype.Service;
 public class EnrollService {
 
     private final EnrollRepository enrollRepository;
+    private final ProjectRepository projectRepository;
 
     @Autowired
-    public EnrollService(EnrollRepository enrollRepository) {
+    public EnrollService(EnrollRepository enrollRepository,
+                         ProjectRepository projectRepository) {
         this.enrollRepository = enrollRepository;
+        this.projectRepository = projectRepository;
     }
 
-    public EnrollDto addEnroll(EnrollInputDto enrollInputDto) {
+    public EnrollDto addEnroll(EnrollInputDto enrollInputDto, Long projectId) throws RecordNotFoundException {
         Enroll enroll = toEnroll(enrollInputDto);
         enrollRepository.save(enroll);
+        Project project = projectRepository.findById(projectId).
+                orElseThrow(() -> new RecordNotFoundException("project " + projectId + " doesn't exist"));
+        enroll.assignProject(project);
+        projectRepository.save(project);
+
         return fromEnroll(enroll);
     }
+
+
+
+
+
+
 
     public String deleteEnroll(Enroll id) {
         enrollRepository.deleteById(id.getId());

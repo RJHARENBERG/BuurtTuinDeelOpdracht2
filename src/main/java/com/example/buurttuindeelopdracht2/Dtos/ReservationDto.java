@@ -6,7 +6,9 @@ public class ReservationDto {
 
     private Long id;
 
-    private Long borrowerId;
+    private String borrowerId;
+    private String StartDate;
+    private String endDate;
 
     public Long getId() {
         return id;
@@ -16,11 +18,27 @@ public class ReservationDto {
         this.id = id;
     }
 
-    public Long getBorrowerId() {
+    public String getBorrowerId() {
         return borrowerId;
     }
 
-    public void setBorrowerId(Long borrowerId) {
+    public void setBorrowerId(String borrowerId) {
         this.borrowerId = borrowerId;
+    }
+
+    public String getStartDate() {
+        return StartDate;
+    }
+
+    public void setStartDate(String startDate) {
+        StartDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }

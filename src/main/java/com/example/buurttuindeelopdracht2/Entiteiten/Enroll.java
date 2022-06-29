@@ -10,7 +10,7 @@ public class Enroll {
     @Id
     @GeneratedValue
     private Long id;
-    private Long tenderId;
+    private String tenderId;
 
     @JsonIgnore
     @ManyToOne
@@ -33,11 +33,11 @@ public class Enroll {
         this.id = id;
     }
 
-    public Long getTenderId() {
+    public String getTenderId() {
         return tenderId;
     }
 
-    public void setTenderId(Long tenderId) {
+    public void setTenderId(String tenderId) {
         this.tenderId = tenderId;
     }
 

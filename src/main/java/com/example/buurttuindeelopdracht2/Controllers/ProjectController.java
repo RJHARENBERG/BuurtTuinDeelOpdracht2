@@ -34,17 +34,17 @@ public class ProjectController {
         return  projectService.getAllProjects();
     }
 
-    @PutMapping("/addNewTodo/{todo_id}/ToProject/{project_id}")
-    public ProjectDto addNewTodoToProject(@PathVariable Long todo_id,
-                                           @PathVariable Long project_id) throws RecordNotFoundException {
-        return projectService.addNewTodoToProject(todo_id, project_id);
-    }
+//    @PutMapping("/addNewTodo/{todo_id}/ToProject/{project_id}")
+//    public ProjectDto addNewTodoToProject(@PathVariable Long todo_id,
+//                                           @PathVariable Long project_id) throws RecordNotFoundException {
+//        return projectService.addNewTodoToProject(todo_id, project_id);
+//    }
 
-    @PutMapping("/addNewEnroll/{enroll_id}/ToProject/{project_id}")
-    public ProjectDto addNewEnrollToProject(@PathVariable Long enroll_id,
-                                          @PathVariable Long project_id) throws RecordNotFoundException {
-        return projectService.addNewEnrollToProject(enroll_id, project_id);
-    }
+//    @PutMapping("/addNewEnroll/{enroll_id}/ToProject/{project_id}")
+//    public ProjectDto addNewEnrollToProject(@PathVariable Long enroll_id,
+//                                          @PathVariable Long project_id) throws RecordNotFoundException {
+//        return projectService.addNewEnrollToProject(enroll_id, project_id);
+//    }
 
     @DeleteMapping("/deleteProjectById/{id}")
     public String deleteProject(@PathVariable Project id) {

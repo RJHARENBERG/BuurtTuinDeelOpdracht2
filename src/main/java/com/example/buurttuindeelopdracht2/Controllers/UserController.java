@@ -34,12 +34,6 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PutMapping("/addNewTool/{tool_id}/ToUser/{username}")
-    public UserDto addNewToolToUser(@PathVariable Long tool_id,
-                                    @PathVariable String username) throws RecordNotFoundException {
-        return userService.addNewToolToUser(tool_id, username);
-    }
-
     @GetMapping("/findUserByUsername/{username}")
     public UserDto findUserById(@PathVariable String username) {
         return userService.getUser(username);
@@ -49,8 +43,6 @@ public class UserController {
     public String deleteUser(@PathVariable String username) {
         return userService.deleteUser(username);
     }
-
-    //    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     @GetMapping(value = "/{userName}/authorities")
     public ResponseEntity<Object> getUserAuthorities(@PathVariable("userName") String username) throws RecordNotFoundException {
@@ -75,8 +67,4 @@ public class UserController {
         userService.removeAuthority(userName, authority);
         return ResponseEntity.noContent().build();
     }
-
-//    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
 }

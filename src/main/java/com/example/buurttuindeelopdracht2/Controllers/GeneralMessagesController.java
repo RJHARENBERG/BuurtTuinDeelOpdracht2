@@ -26,12 +26,6 @@ public class GeneralMessagesController {
         return generalMessagesService.addGeneralMessages(generalMessagesInputDto);
     }
 
-    @PutMapping("/addNewResponse/{response_id}/ToGeneralMessages/{generalMessages_id}")
-    public GeneralMessagesDto addNewResponseToGeneralMessages(@PathVariable Long response_id,
-                                           @PathVariable Long generalMessages_id) throws RecordNotFoundException {
-        return generalMessagesService.addNewResponseToGeneralMessages(response_id, generalMessages_id);
-    }
-
     @DeleteMapping("/deleteGeneralMessagesById/{id}")
     public String deleteGeneralMessages(@PathVariable GeneralMessages id) {
         return generalMessagesService.deleteGeneralMessages(id);

@@ -48,41 +48,41 @@ public class ProjectService {
         return projectDtos;
     }
 
-    public ProjectDto addNewTodoToProject(Long todoId, Long projectId) throws RecordNotFoundException {
-        Optional<Todo> optionalTodo = todoRepository.findById(todoId);
-        Optional<Project> optionalProject = projectRepository.findById(projectId);
+//    public ProjectDto addNewTodoToProject(Long todoId, Long projectId) throws RecordNotFoundException {
+//        Optional<Todo> optionalTodo = todoRepository.findById(todoId);
+//        Optional<Project> optionalProject = projectRepository.findById(projectId);
+//
+//        Project project;
+//        Todo todo;
+//        if (optionalProject.isEmpty() || optionalTodo.isEmpty()) {
+//            throw new RecordNotFoundException();
+//        } else {
+//            todo = optionalTodo.get();
+//            project = optionalProject.get();
+//
+//            todo.assignProject(project);
+//            projectRepository.save(project);
+//        }
+//        return fromProject(project);
+//    }
 
-        Project project;
-        Todo todo;
-        if (optionalProject.isEmpty() || optionalTodo.isEmpty()) {
-            throw new RecordNotFoundException();
-        } else {
-            todo = optionalTodo.get();
-            project = optionalProject.get();
-
-            todo.assignProject(project);
-            projectRepository.save(project);
-        }
-        return fromProject(project);
-    }
-
-    public ProjectDto addNewEnrollToProject(Long enrollId, Long projectId) throws RecordNotFoundException {
-        Optional<Enroll> optionalEnroll = enrollRepository.findById(enrollId);
-        Optional<Project> optionalProject = projectRepository.findById(projectId);
-
-        Project project;
-        Enroll enroll;
-        if (optionalProject.isEmpty() || optionalEnroll.isEmpty()) {
-            throw new RecordNotFoundException();
-        } else {
-            enroll = optionalEnroll.get();
-            project = optionalProject.get();
-
-            enroll.assignProject(project);
-            projectRepository.save(project);
-        }
-        return fromProject(project);
-    }
+//    public ProjectDto addNewEnrollToProject(Long enrollId, Long projectId) throws RecordNotFoundException {
+//        Optional<Enroll> optionalEnroll = enrollRepository.findById(enrollId);
+//        Optional<Project> optionalProject = projectRepository.findById(projectId);
+//
+//        Project project;
+//        Enroll enroll;
+//        if (optionalProject.isEmpty() || optionalEnroll.isEmpty()) {
+//            throw new RecordNotFoundException();
+//        } else {
+//            enroll = optionalEnroll.get();
+//            project = optionalProject.get();
+//
+//            enroll.assignProject(project);
+//            projectRepository.save(project);
+//        }
+//        return fromProject(project);
+//    }
 
     public String deleteProject(Project id) {
         projectRepository.deleteById(id.getId());

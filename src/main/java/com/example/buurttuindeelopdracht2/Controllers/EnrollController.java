@@ -1,8 +1,7 @@
 package com.example.buurttuindeelopdracht2.Controllers;
-
-import com.example.buurttuindeelopdracht2.Dtos.EnrollDto;
-import com.example.buurttuindeelopdracht2.Dtos.EnrollInputDto;
+import com.example.buurttuindeelopdracht2.Dtos.*;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
+import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.EnrollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +18,10 @@ public class EnrollController {
         this.enrollService = enrollService;
     }
 
-    @PostMapping("/addEnroll")
-    public EnrollDto addEnroll (@RequestBody EnrollInputDto enrollInputDto){
-        return enrollService.addEnroll(enrollInputDto);
+    @PostMapping("/addEnroll/{project_id}")
+    public EnrollDto addEnroll (@PathVariable Long project_id,
+                                    @RequestBody EnrollInputDto enrollInputDto) throws RecordNotFoundException {
+        return enrollService.addEnroll(enrollInputDto, project_id);
     }
 
     @DeleteMapping("/deleteEnrollById/{id}")

@@ -3,6 +3,7 @@ package com.example.buurttuindeelopdracht2.Controllers;
 import com.example.buurttuindeelopdracht2.Dtos.ReservationDto;
 import com.example.buurttuindeelopdracht2.Dtos.ReservationInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
+import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +23,10 @@ public class ReservationController {
     }
 
 
-    @PostMapping("/addReservation")
-    public ReservationDto addReservation (@RequestBody ReservationInputDto reservationInputDto){
-        return reservationService.addReservation(reservationInputDto);
+    @PostMapping("/addReservation/{tool_id}")
+    public ReservationDto addReservation (@PathVariable Long tool_id,
+                                          @RequestBody ReservationInputDto reservationInputDto) throws RecordNotFoundException {
+        return reservationService.addReservation(reservationInputDto, tool_id);
     }
 
     @GetMapping("/allReservation")

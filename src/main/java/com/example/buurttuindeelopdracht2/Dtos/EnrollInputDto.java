@@ -5,7 +5,7 @@ import com.example.buurttuindeelopdracht2.Entiteiten.Project;
 public class EnrollInputDto {
 
     private Long id;
-    private Long tenderId;
+    private String tenderId;
 
     private Project project;
 
@@ -17,11 +17,11 @@ public class EnrollInputDto {
         this.id = id;
     }
 
-    public Long getTenderId() {
+    public String getTenderId() {
         return tenderId;
     }
 
-    public void setTenderId(Long tenderId) {
+    public void setTenderId(String tenderId) {
         this.tenderId = tenderId;
     }
 

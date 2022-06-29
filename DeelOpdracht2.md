@@ -17,9 +17,9 @@ op voor de backend van een applicatie,
    [v] De student ontwerpt een relationele database,
    [] waarin data met onderlinge relaties veilig opgeslagen en uitgelezen kan worden,
    [v] aan de hand van een technisch ontwerp document.
-   [] Tevens beheert de student de:
+   [v] Tevens beheert de student de:
       [v] data
-      [] rechten van databasegebruikers
+      [v] rechten van databasegebruikers
       [v] voert hij CRUD- opdrachten uit op de database.
 4.Spring Boot
    [] De student zet een backend applicatie op met behulp van het
@@ -29,26 +29,26 @@ op voor de backend van een applicatie,
       [] en het mocken van klassen
       [v] en tevens communiceert de applicatie met een database.
 5.Design Patterns & Clean Code
-   [] De student schrijft zijn code volgens de afgesproken conventies van Clean Code
-      [] en ontwikkelt highly cohesive
+   [v] De student schrijft zijn code volgens de afgesproken conventies van Clean Code
+      [v] en ontwikkelt highly cohesive
       [v] en loose coupled code,
-      [] door de toepassing van:
-         [] Design Patterns
-         [] en SOLID.
+      [v] door de toepassing van:
+         [v] Design Patterns
+         [v] en SOLID.
 
 Deelopdrachten 2 & 3: Programmeerfase
 
-   [] Je hebt zojuist de ontwerpfase afgerond, het is nu tijd om de applicatie te bouwen!
+   [v] Je hebt zojuist de ontwerpfase afgerond, het is nu tijd om de applicatie te bouwen!
 In de programmeerfase ga je zowel de
-   [] backend als de
-   [] frontend uitwerken.
+   [v] backend als de
+   [v] frontend uitwerken.
 
 Hieronder vind je de bijbehorende deelopdrachten. De wijze waarop je de applicatie bouwt,
-      [] sluit aan bij de eisen die je hebt opgesteld in de ontwerpfase.
+      [v] sluit aan bij de eisen die je hebt opgesteld in de ontwerpfase.
       [v] Je applicatie dient een multi tier applicatie te zijn.
 
 In de programmeerfase houd je rekening met de volgende algemene punten:
-   [] Multi-tier application:
+   [v] Multi-tier application:
       [v] frontend
       [v] backend
       [v] database
@@ -62,33 +62,33 @@ Deelopdracht 2. Programmeerfase - backend
    [v] De backend van de applicatie ontwikkel je in Java,
    [v] met behulp van het Spring Boot framework.
    [v] Afhankelijk van de complexiteit van het op te lossen probleem, gebruik je OOP-structuren zoals
-   [] overerving,
+   [v] overerving,
    [v] interfaces
    [v] abstracte klassen.
-   [] Met behulp van Spring Security pas je
-      [] autorisatie
-      [] authenticatie toe.
+   [v] Met behulp van Spring Security pas je
+      [v] autorisatie
+      [v] authenticatie toe.
       [v] Je gebruikt HTTP-methods om de vertaalslag te maken naar acties met de data.
-      [] Je gebruikt verschillende componenten van Spring-boot, zoals (maar niet gelimiteerd tot)
-         [] de annotaties en configuratie van de applicatie.
-   []Je let hierbij op de principes van:
-      [] Clean Code
-      [] Design Patterns
-      [] SOLID
+      [v] Je gebruikt verschillende componenten van Spring-boot, zoals (maar niet gelimiteerd tot)
+         [v] de annotaties en configuratie van de applicatie.
+   [v]Je let hierbij op de principes van:
+      [v] Clean Code
+      [v] Design Patterns
+      [v] SOLID
       [] Je test geschreven klassen individueel met unittests die gebruik maken van de drie A’s,
       [] waarbij de test coverage minimaal 50% is exclusief getters en setters.
    [] Ook voer je integratie-testen uit door de application context van de applicatie te testen gebruikmakend van:
       [] Spring Boot test
       [] WebMvc
-      [] Je past de principes Maven build lifecycle toe bij het beheren van externe code en libraries.
+      [v] Je past de principes Maven build lifecycle toe bij het beheren van externe code en libraries.
       [v] Alle data sla je op in een SQL database waarbij je zorg draagt voor de
-      [] autorisatie
-      [] authenticatie in de database.
+      [v] autorisatie
+      [v] authenticatie in de database.
 
 Houd verder bij het programmeren rekening met onderstaande punten:
    [v] Je ontwikkelt volgens OOP-principes en met behulp van Java & Spring-boot;
    [v] Je maakt gebruik van Maven;
-   [] Je applicatie is beveiligd en bevat meerdere user rollen;
+   [v] Je applicatie is beveiligd en bevat meerdere user rollen;
    [v] Je maakt gebruik van een relationele database. 
 
 Op te leveren:
@@ -199,25 +199,25 @@ Per criterium kent de beoordelaar een aantal punten toe.
 Criterium 2.1 10%
 De student maakt Java applicaties waarbij hij op de juiste momenten, afhankelijk van de complexiteit
 van het op te lossen probleem,
-   [] OOP- structuren gebruikt zoals
-      [] overerving,
+   [v] OOP- structuren gebruikt zoals
+      [v] overerving,
       [v] interfaces en
       [v] abstracte klassen
-   [] en de student schrijft Java- code op basis van
-      [] Clean Code,
-      [] Design Patterns
-      [] SOLID.
+   [v] en de student schrijft Java- code op basis van
+      [v] Clean Code,
+      [v] Design Patterns
+      [v] SOLID.
 
 Criterium 2.2 5%
    [v] De student gebruikt HTTP-methods om de vertaalslag te maken naar acties met de data.
 
 Criterium 2.3 5%
-   [] De student past autorisatie en authenticatie toe
+   [v] De student past autorisatie en authenticatie toe
    [v] met behulp van Spring Security
    [v] en de student gebruikt verschillende componenten van Spring- boot
-   [] zoals, maar niet gelimiteerd tot,
-      [] de annotaties
-      [] en configuratie van de applicatie.
+   [v] zoals, maar niet gelimiteerd tot,
+      [v] de annotaties
+      [v] en configuratie van de applicatie.
 
 Criterium 2.4 5%
    [] De student voert integratie-tests uit
@@ -227,9 +227,9 @@ Criterium 2.4 5%
    [] waarbij de test coverage minimaal 50% is exclusief getters en setters).
 
 Criterium 2.5 5%
-   [] De student past de principes Maven build lifecycle toe
-      [] bij het beheren van externe code
-      [] en zijn libraries
+   [v] De student past de principes Maven build lifecycle toe
+      [v] bij het beheren van externe code
+      [v] en zijn libraries
       [v] en de student beheert zijn code met gebruik van Git om met versiebeheer de voortgang van het project
          vast te leggen.
       [v] De student heeft kleine commits,
@@ -237,13 +237,13 @@ Criterium 2.5 5%
       [v] en mergt regelmatig.
 
 Criterium 2.6 5%
-   [] De student leest en bewerkt data met behulp van
+   [v] De student leest en bewerkt data met behulp van
       [v] SQL,
       [v] JPA
       [v] en Hibernate
-   [] en draagt zorg voor de
-      [] autorisatie
-      [] en authenticatie in de database.
+      [v] en draagt zorg voor de
+      [v] autorisatie
+      [v] en authenticatie in de database.
 
 
 3. Opleveringsfase totaal 10%
