@@ -2,11 +2,8 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesDto;
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
-import com.example.buurttuindeelopdracht2.Entiteiten.Project;
 import com.example.buurttuindeelopdracht2.Entiteiten.Response;
-import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.GeneralMessagesRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ResponseRepository;

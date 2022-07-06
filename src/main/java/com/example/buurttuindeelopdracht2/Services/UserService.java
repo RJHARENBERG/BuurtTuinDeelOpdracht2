@@ -3,7 +3,6 @@ package com.example.buurttuindeelopdracht2.Services;
 import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Dtos.UserInputDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Authority;
-import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
 import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;
@@ -57,29 +56,10 @@ public class UserService {
         return dto;
     }
 
-//    public UserDto addNewToolToUser(Long toolId, String userId) throws RecordNotFoundException {
-//        Optional<Tool> optionalTool = toolRepository.findById(toolId);
-//        Optional<User> optionalUser = userRepository.findById(userId);
-//
-//        User user;
-//        Tool tool;
-//        if (optionalUser.isEmpty() || optionalTool.isEmpty()) {
-//            throw new RecordNotFoundException();
-//        } else {
-//            tool = optionalTool.get();
-//            user = optionalUser.get();
-//
-//            tool.assignUser(user);
-//            userRepository.save(user);
-//        }
-//        return fromUser(user);
-//    }
-
     public String deleteUser(String id) {
         userRepository.deleteById(id);
         return "User removed !!" + id;
     }
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     public String createUser(UserInputDto userInputDto) {
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
@@ -118,9 +98,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
     public static UserDto fromUser(User user) {
         var dto = new UserDto();
 
@@ -154,6 +131,4 @@ public class UserService {
         user.setAuthorities(userInputDto.getAuthorities());
         return user;
     }
-
-
 }

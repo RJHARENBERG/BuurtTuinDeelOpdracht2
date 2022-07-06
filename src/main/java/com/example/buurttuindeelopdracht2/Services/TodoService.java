@@ -29,13 +29,6 @@ public class TodoService {
     }
 
 
-
-
-
-
-
-
-
     public TodoDto addTodo(TodoInputDto todoInputDto, Long projectId) throws RecordNotFoundException {
         Todo todo = toTodo(todoInputDto);
         todoRepository.save(todo);
@@ -46,13 +39,6 @@ public class TodoService {
 
         return fromTodo(todo);
     }
-
-
-
-
-
-
-
 
     public String deleteTodo(Todo id) {
         todoRepository.deleteById(id.getId());

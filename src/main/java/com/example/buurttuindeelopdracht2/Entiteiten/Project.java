@@ -19,9 +19,6 @@ public class Project {
     private String location;
     private String description;
 
-//    @OneToOne
-//    FileUploadResponse file;
-
     @JsonIgnore
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Enroll> enrolls = new HashSet<>();
@@ -44,14 +41,6 @@ public class Project {
     public void setEnrolls(Set<Enroll> enrolls) {
         this.enrolls = enrolls;
     }
-
-//    public FileUploadResponse getFile() {
-//        return file;
-//    }
-//
-//    public void setFile(FileUploadResponse file) {
-//        this.file = file;
-//    }
 
     public Long getId() {
         return id;

@@ -2,17 +2,13 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.ProjectDto;
 import com.example.buurttuindeelopdracht2.Dtos.ProjectInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
 import com.example.buurttuindeelopdracht2.Entiteiten.Project;
-import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
-import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.EnrollRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ProjectRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -66,11 +62,7 @@ public class ProjectService {
 
 
     public Optional<List<Enroll>> findProjectsByTenderId(String tenderId){
-//        List<ProjectDto> projectDtos = new ArrayList<>();
         Optional<List<Enroll>> projects = enrollRepository.findByTenderIdIsContainingIgnoreCase(tenderId);
-//        for (Project project : projects) {
-//            projectDtos.add(fromProject(project));
-//        }
         return projects;
     }
 
@@ -90,8 +82,6 @@ public class ProjectService {
         dto.setLocation(project.getLocation());
         dto.setDescription(project.getDescription());
 
-//        dto.setFile(project.getFile());
-
         dto.setTodos(project.getTodos());
         dto.setEnrolls(project.getEnrolls());
 
@@ -106,8 +96,6 @@ public class ProjectService {
         project.setDate(projectInputDto.getDate());
         project.setLocation(projectInputDto.getLocation());
         project.setDescription(projectInputDto.getDescription());
-
-//        project.setFile(projectInputDto.getFile());
 
         project.setTodos(projectInputDto.getTodos());
         project.setEnrolls(projectInputDto.getEnrolls());

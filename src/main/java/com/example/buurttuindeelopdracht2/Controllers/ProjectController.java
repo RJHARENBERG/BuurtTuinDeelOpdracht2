@@ -2,11 +2,8 @@ package com.example.buurttuindeelopdracht2.Controllers;
 
 import com.example.buurttuindeelopdracht2.Dtos.ProjectDto;
 import com.example.buurttuindeelopdracht2.Dtos.ProjectInputDto;
-import com.example.buurttuindeelopdracht2.Dtos.ToolDto;
-import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
 import com.example.buurttuindeelopdracht2.Entiteiten.Project;
-import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;

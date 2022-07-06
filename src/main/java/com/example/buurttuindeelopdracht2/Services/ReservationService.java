@@ -3,7 +3,6 @@ package com.example.buurttuindeelopdracht2.Services;
 import com.example.buurttuindeelopdracht2.Dtos.*;
 import com.example.buurttuindeelopdracht2.Entiteiten.Reservation;
 import com.example.buurttuindeelopdracht2.Entiteiten.Tool;
-import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.ReservationRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ToolRepository;

@@ -1,7 +1,5 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @Entity
@@ -12,7 +10,6 @@ public class Enroll {
     private Long id;
     private String tenderId;
 
-//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;

@@ -1,7 +1,5 @@
 package com.example.buurttuindeelopdracht2.Dtos;
 
-import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
-
 public class ReservationDto {
 
     private Long id;
