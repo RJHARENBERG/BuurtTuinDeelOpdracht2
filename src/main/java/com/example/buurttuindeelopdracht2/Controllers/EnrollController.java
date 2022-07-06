@@ -6,6 +6,8 @@ import com.example.buurttuindeelopdracht2.Services.EnrollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/enrolls")
@@ -16,6 +18,11 @@ public class EnrollController {
     @Autowired
     public EnrollController(EnrollService enrollService) {
         this.enrollService = enrollService;
+    }
+
+    @GetMapping("/allEnrolls")
+    public List<EnrollDto> getAllEnrolls() {
+        return enrollService.getAllEnrolls();
     }
 
     @PostMapping("/addEnroll/{project_id}")

@@ -19,7 +19,6 @@ public class Response {
     @JoinColumn(name = "general_messages_id")
     private GeneralMessages generalMessages;
 
-
     public GeneralMessages getGeneralMessages() {
         return generalMessages;
     }

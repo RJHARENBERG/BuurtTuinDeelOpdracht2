@@ -2,6 +2,7 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.ProjectDto;
 import com.example.buurttuindeelopdracht2.Dtos.ProjectInputDto;
+import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.Enroll;
 import com.example.buurttuindeelopdracht2.Entiteiten.Project;
 import com.example.buurttuindeelopdracht2.Entiteiten.Todo;
@@ -11,6 +12,7 @@ import com.example.buurttuindeelopdracht2.Repositorys.EnrollRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ProjectRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -48,41 +50,30 @@ public class ProjectService {
         return projectDtos;
     }
 
-//    public ProjectDto addNewTodoToProject(Long todoId, Long projectId) throws RecordNotFoundException {
-//        Optional<Todo> optionalTodo = todoRepository.findById(todoId);
-//        Optional<Project> optionalProject = projectRepository.findById(projectId);
-//
-//        Project project;
-//        Todo todo;
-//        if (optionalProject.isEmpty() || optionalTodo.isEmpty()) {
-//            throw new RecordNotFoundException();
-//        } else {
-//            todo = optionalTodo.get();
-//            project = optionalProject.get();
-//
-//            todo.assignProject(project);
-//            projectRepository.save(project);
-//        }
-//        return fromProject(project);
-//    }
 
-//    public ProjectDto addNewEnrollToProject(Long enrollId, Long projectId) throws RecordNotFoundException {
-//        Optional<Enroll> optionalEnroll = enrollRepository.findById(enrollId);
-//        Optional<Project> optionalProject = projectRepository.findById(projectId);
-//
-//        Project project;
-//        Enroll enroll;
-//        if (optionalProject.isEmpty() || optionalEnroll.isEmpty()) {
-//            throw new RecordNotFoundException();
-//        } else {
-//            enroll = optionalEnroll.get();
-//            project = optionalProject.get();
-//
-//            enroll.assignProject(project);
-//            projectRepository.save(project);
+
+
+    public ProjectDto getProject(Long id) throws RecordNotFoundException {
+        ProjectDto dto = new ProjectDto();
+        Optional<Project> project = projectRepository.findById(id);
+        if (project.isPresent()){
+            dto = fromProject(project.get());
+        }else {
+            throw new RecordNotFoundException();
+        }
+        return dto;
+    }
+
+
+    public Optional<List<Enroll>> findProjectsByTenderId(String tenderId){
+//        List<ProjectDto> projectDtos = new ArrayList<>();
+        Optional<List<Enroll>> projects = enrollRepository.findByTenderIdIsContainingIgnoreCase(tenderId);
+//        for (Project project : projects) {
+//            projectDtos.add(fromProject(project));
 //        }
-//        return fromProject(project);
-//    }
+        return projects;
+    }
+
 
     public String deleteProject(Project id) {
         projectRepository.deleteById(id.getId());

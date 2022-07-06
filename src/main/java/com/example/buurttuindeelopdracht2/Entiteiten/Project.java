@@ -1,6 +1,8 @@
 package com.example.buurttuindeelopdracht2.Entiteiten;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,10 +22,11 @@ public class Project {
 //    @OneToOne
 //    FileUploadResponse file;
 
-    @OneToMany(mappedBy = "project")
+    @JsonIgnore
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Enroll> enrolls = new HashSet<>();
 
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Todo> todos =new HashSet<>();
 
     public Set<Todo> getTodos() {

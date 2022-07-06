@@ -8,6 +8,9 @@ import com.example.buurttuindeelopdracht2.Repositorys.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class EnrollService {
 
@@ -21,6 +24,18 @@ public class EnrollService {
         this.projectRepository = projectRepository;
     }
 
+
+    public List<EnrollDto> getAllEnrolls() {
+        List<EnrollDto> enrollDtos = new ArrayList<>();
+        List<Enroll> enrolls = enrollRepository.findAll();
+        for (Enroll enroll : enrolls) {
+            enrollDtos.add(fromEnroll(enroll));
+        }
+        return enrollDtos;
+    }
+
+
+
     public EnrollDto addEnroll(EnrollInputDto enrollInputDto, Long projectId) throws RecordNotFoundException {
         Enroll enroll = toEnroll(enrollInputDto);
         enrollRepository.save(enroll);
@@ -31,12 +46,6 @@ public class EnrollService {
 
         return fromEnroll(enroll);
     }
-
-
-
-
-
-
 
     public String deleteEnroll(Enroll id) {
         enrollRepository.deleteById(id.getId());

@@ -2,15 +2,19 @@ package com.example.buurttuindeelopdracht2.Services;
 
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesDto;
 import com.example.buurttuindeelopdracht2.Dtos.GeneralMessagesInputDto;
+import com.example.buurttuindeelopdracht2.Dtos.UserDto;
 import com.example.buurttuindeelopdracht2.Entiteiten.GeneralMessages;
 import com.example.buurttuindeelopdracht2.Entiteiten.Project;
 import com.example.buurttuindeelopdracht2.Entiteiten.Response;
+import com.example.buurttuindeelopdracht2.Entiteiten.User;
 import com.example.buurttuindeelopdracht2.Exceptions.RecordNotFoundException;
 import com.example.buurttuindeelopdracht2.Repositorys.GeneralMessagesRepository;
 import com.example.buurttuindeelopdracht2.Repositorys.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,6 +35,15 @@ public class GeneralMessagesService {
         GeneralMessages generalMessages = toGeneralMessages(generalMessagesInputDto);
         generalMessagesRepository.save(generalMessages);
         return fromGeneralMessages(generalMessages);
+    }
+
+    public List<GeneralMessagesDto> getAllGeneralMessages() {
+        List<GeneralMessagesDto> generalMessagesDtos = new ArrayList<>();
+        List<GeneralMessages> generalMessagess = generalMessagesRepository.findAll();
+        for (GeneralMessages generalMessages : generalMessagess) {
+            generalMessagesDtos.add(fromGeneralMessages(generalMessages));
+        }
+        return generalMessagesDtos;
     }
 
 
@@ -82,7 +95,4 @@ public class GeneralMessagesService {
 
         return generalMessages;
     }
-
-
-
 }

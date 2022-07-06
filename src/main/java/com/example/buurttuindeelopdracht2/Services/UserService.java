@@ -57,23 +57,23 @@ public class UserService {
         return dto;
     }
 
-    public UserDto addNewToolToUser(Long toolId, String userId) throws RecordNotFoundException {
-        Optional<Tool> optionalTool = toolRepository.findById(toolId);
-        Optional<User> optionalUser = userRepository.findById(userId);
-
-        User user;
-        Tool tool;
-        if (optionalUser.isEmpty() || optionalTool.isEmpty()) {
-            throw new RecordNotFoundException();
-        } else {
-            tool = optionalTool.get();
-            user = optionalUser.get();
-
-            tool.assignUser(user);
-            userRepository.save(user);
-        }
-        return fromUser(user);
-    }
+//    public UserDto addNewToolToUser(Long toolId, String userId) throws RecordNotFoundException {
+//        Optional<Tool> optionalTool = toolRepository.findById(toolId);
+//        Optional<User> optionalUser = userRepository.findById(userId);
+//
+//        User user;
+//        Tool tool;
+//        if (optionalUser.isEmpty() || optionalTool.isEmpty()) {
+//            throw new RecordNotFoundException();
+//        } else {
+//            tool = optionalTool.get();
+//            user = optionalUser.get();
+//
+//            tool.assignUser(user);
+//            userRepository.save(user);
+//        }
+//        return fromUser(user);
+//    }
 
     public String deleteUser(String id) {
         userRepository.deleteById(id);
