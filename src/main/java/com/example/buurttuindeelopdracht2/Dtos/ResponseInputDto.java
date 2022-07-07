@@ -5,7 +5,7 @@ public class ResponseInputDto {
     private Long id;
 
     private String message;
-    private Long messengerId;
+    private String messengerId;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class ResponseInputDto {
         this.message = message;
     }
 
-    public Long getMessengerId() {
+    public String getMessengerId() {
         return messengerId;
     }
 
-    public void setMessengerId(Long messengerId) {
+    public void setMessengerId(String messengerId) {
         this.messengerId = messengerId;
     }
 }
